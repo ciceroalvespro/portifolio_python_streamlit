@@ -15,7 +15,11 @@ st.set_page_config(
 # Mudar a pagina pelo side bar
 st.sidebar.title('Portfolio')
 page = st.sidebar.radio(
-    'Projetos', ['Apresentação', 'Análise de Ações', 'Dashboard de vendas'])
+    'Projetos', ['Apresentação', 'Análise de Ações', 'Dashboard de vendas', 'Ranking Aeroportos'])
+
+###############################################################################################################################################
+# Página de Apresentação
+############################################################################################################################################### 
 
 # Condições para mostrar o conteúdo de cada página
 if page == 'Apresentação':
@@ -49,6 +53,9 @@ ciceroalvespro@gmail.com
 
                 """)
 
+###############################################################################################################################################
+# Página Análise de Ações
+############################################################################################################################################### 
 
 elif page == 'Análise de Ações':
 
@@ -255,8 +262,28 @@ elif page == 'Análise de Ações':
     fig_m2pl = px.bar(df2_filtred_pl, x="Papel", y="P/L",
                       title="2. Modelo: Top 10 P/L")
     col6.plotly_chart(fig_m2pl, use_container_width=True)
-
-
+    
+###############################################################################################################################################
+# PAGINA RANKING AEROPORTOS BRASILEIROS - ANAC 
+###############################################################################################################################################
+elif page == 'Ranking Aeroportos':
+    # Título da página
+    st.subheader(":bar_chart: Ranking Aeroportos - ANAC")
+    # st.markdown("#")
+    st.markdown("""---""")
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+###############################################################################################################################################
+# PAGINA Dashboard de vendas 
+###############################################################################################################################################    
 else:
     # Título alinhado ao centro
     st.subheader(":bar_chart: Dashboad de vendas")
