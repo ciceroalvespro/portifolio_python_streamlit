@@ -266,11 +266,85 @@ elif page == 'Análise de Ações':
 ###############################################################################################################################################
 # PAGINA RANKING AEROPORTOS BRASILEIROS - ANAC 
 ###############################################################################################################################################
-elif page == 'Ranking Aeroportos':
+elif page == 'Ranking de Aeroportos':
     # Título da página
-    st.subheader(":bar_chart: Ranking Aeroportos - ANAC")
+    st.subheader(":bar_chart: Ranking de Aeroportos Brasileiros")
     # st.markdown("#")
     st.markdown("""---""")
+    
+    base_url = "https://raw.githubusercontent.com/ciceroalvespro/portifolio_python_streamlit/master/Dados%20publicos%20anac/dados_publicos_anac_{}.csv"
+
+    # Lista para armazenar os DataFrames de cada ano
+    dfs = []
+
+    # Iterar sobre os anos de 2013 a 2023
+    for year in range(2013, 2024):
+        url = base_url.format(year)
+        df = pd.read_csv(url, sep=";")
+        dfs.append(df)
+
+    # Concatenar todos os DataFrames em um único DataFrame
+    df = pd.concat(dfs, ignore_index=True)
+
+    # df origem (decolagem)
+    pd.options.mode.copy_on_write = True
+    # filtrar o pais de origen (Brasil)
+    df_origem = df[df["AEROPORTO DE ORIGEM (PAÍS)"] =="BRASIL"]
+    # criar uma coluna com AEROPORTO DE ORIGEM (SIGLA) - AERODROMO
+    df_origem["AERODROMO"] = df_origem["AEROPORTO DE ORIGEM (SIGLA)"]
+    # criar uma coluna com o tipo de movimento
+    df_origem["MOVIMENTO TIPO"] = "DECOLAGEM"
+    #criar coluna calculada para pax
+    df_origem["PASSAGEIROS"] = df_origem["PASSAGEIROS PAGOS"] + df_origem["PASSAGEIROS GRÁTIS"]
+    # separa as colunas ANO - MES - EMPRESA (SIGLA) - AERODROMO - PASSAGEIROS PAGOS - CARGA PAGA (KG) - DECOLAGENS
+    df_origem = df_origem[["ANO", "MÊS","MOVIMENTO TIPO", "AERODROMO","EMPRESA (SIGLA)", "PASSAGEIROS","CARGA PAGA (KG)","DECOLAGENS"]]
+
+    # df destino (pouso)
+    pd.options.mode.copy_on_write = True
+    # filtrar o pais de destino (Brasil)
+    df_destino = df[df["AEROPORTO DE DESTINO (PAÍS)"] =="BRASIL"]
+    # criar uma coluna com AEROPORTO DE DESTINO (SIGLA) - AERODROMO
+    df_destino["AERODROMO"] = df_destino["AEROPORTO DE DESTINO (SIGLA)"]
+    # criar uma coluna com o tipo de movimento
+    df_destino["MOVIMENTO TIPO"] = "POUSO"
+    #criar coluna calculada para pax
+    df_destino["PASSAGEIROS"] = df_destino["PASSAGEIROS PAGOS"] + df_destino["PASSAGEIROS GRÁTIS"]
+    # separa as colunas ANO - MES - EMPRESA (SIGLA) - AERODROMO - PASSAGEIROS PAGOS - CARGA PAGA (KG) - DECOLAGENS
+    df_destino = df_destino[["ANO", "MÊS","MOVIMENTO TIPO", "AERODROMO","EMPRESA (SIGLA)", "PASSAGEIROS","CARGA PAGA (KG)","DECOLAGENS"]]
+
+
+    # crando um data frame unico
+    df_anac = pd.concat([df_origem, df_destino], ignore_index=True)
+    
+    # filtros
+    st.sidebar.title("Filtros")
+    ANO = st.sidebar.selectbox("Ano", df_anac["ANO"].unique())
+
+    # PAX
+    # preparando o grafico
+    ANO = 2023
+    df_anac = df_anac[df_anac["ANO"]== ANO]
+    df_anac_group_pax = df_anac.groupby("AERODROMO")["PASSAGEIROS"].sum().reset_index()
+    df_anac_group_pax = df_anac_group_pax.sort_values("PASSAGEIROS", ascending=False)
+    df_anac_group_pax = df_anac_group_pax.head(10)
+    # criando o grafico pax
+    fig_pax = px.bar(df_anac_group_pax, x="AERODROMO", y="PASSAGEIROS", title="Ranking de aeródromos por passageiro - Top 10")
+
+    # CARGO
+    # preparando o grafico
+    df_anac_group_cargo = df_anac.groupby("AERODROMO")["CARGA PAGA (KG)"].sum().reset_index()
+    df_anac_group_cargo = df_anac_group_cargo.sort_values("CARGA PAGA (KG)", ascending=False)
+    df_anac_group_cargo = df_anac_group_cargo.head(10)
+    # criando o grafico pax
+    fig_pax = px.bar(df_anac_group_cargo, x="AERODROMO", y="CARGA PAGA (KG)", title="Ranking de aeródromos por carga aérea - Top 10")
+
+    # MOVIMENTOS
+    # preparando o grafico
+    df_anac_group_atm = df_anac.groupby("AERODROMO")["DECOLAGENS"].sum().reset_index()
+    df_anac_group_atm = df_anac_group_atm.sort_values("DECOLAGENS", ascending=False)
+    df_anac_group_atm = df_anac_group_atm.head(10)
+    # criando o grafico pax
+    fig_pax = px.bar(df_anac_group_atm, x="AERODROMO", y="DECOLAGENS", title="Ranking de aeródromos por aeronave - Top 10")
     
     
     
