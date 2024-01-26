@@ -300,7 +300,7 @@ elif page == 'Ranking de Aeroportos':
     #criar coluna calculada para pax
     df_origem["PASSAGEIROS"] = df_origem["PASSAGEIROS PAGOS"] + df_origem["PASSAGEIROS GRÁTIS"]
     # separa as colunas ANO - MES - EMPRESA (SIGLA) - AERODROMO - PASSAGEIROS PAGOS - CARGA PAGA (KG) - DECOLAGENS
-    df_origem = df_origem[["ANO", "MÊS","MOVIMENTO TIPO", "AERODROMO","EMPRESA (SIGLA)", "PASSAGEIROS","CARGA PAGA (KG)","DECOLAGENS"]]
+    df_origem = df_origem[["ANO", "MÊS","MOVIMENTO TIPO", "AERODROMO","EMPRESA (SIGLA)", "PASSAGEIROS","CARGA PAGA (KG)","DECOLAGENS","CORREIO (KG)"]]
 
     # df destino (pouso)
     pd.options.mode.copy_on_write = True
@@ -313,7 +313,7 @@ elif page == 'Ranking de Aeroportos':
     #criar coluna calculada para pax
     df_destino["PASSAGEIROS"] = df_destino["PASSAGEIROS PAGOS"] + df_destino["PASSAGEIROS GRÁTIS"]
     # separa as colunas ANO - MES - EMPRESA (SIGLA) - AERODROMO - PASSAGEIROS PAGOS - CARGA PAGA (KG) - DECOLAGENS
-    df_destino = df_destino[["ANO", "MÊS","MOVIMENTO TIPO", "AERODROMO","EMPRESA (SIGLA)", "PASSAGEIROS","CARGA PAGA (KG)","DECOLAGENS"]]
+    df_destino = df_destino[["ANO", "MÊS","MOVIMENTO TIPO", "AERODROMO","EMPRESA (SIGLA)", "PASSAGEIROS","CARGA PAGA (KG)","DECOLAGENS","CORREIO (KG)"]]
 
 
     # crando um data frame unico
@@ -325,6 +325,7 @@ elif page == 'Ranking de Aeroportos':
     
     # layout dos graficos
     col1, col2 = st.columns(2)
+    col3, col4 = st.columns(2)
 
     # PAX
     # preparando o grafico
@@ -352,7 +353,17 @@ elif page == 'Ranking de Aeroportos':
     df_anac_group_cargo = df_anac_group_cargo.head(10)
     # criando o grafico pax
     fig_cargo = px.bar(df_anac_group_cargo, x="AERODROMO", y="CARGA PAGA (KG)", title="Ranking de aeródromos por carga aérea - Top 10")
-    fig_cargo
+    col3.plotly_chart(fig_cargo, use_container_width=True)
+    
+    
+    # CORREIO
+    # preparando o grafico
+    df_anac_group_correio = df_anac.groupby("AERODROMO")["CORREIO (KG)"].sum().reset_index()
+    df_anac_group_correio = df_anac_group_correio.sort_values("CORREIO (KG)", ascending=False)
+    df_anac_group_correio = df_anac_group_correio.head(10)
+    # criando o grafico pax
+    fig_correio = px.bar(df_anac_group_correio, x="AERODROMO", y="CORREIO (KG)", title="Ranking de aeródromos por correio aéreo - Top 10")
+    col4.plotly_chart(fig_correio, use_container_width=True)
     
 ###############################################################################################################################################
 # PAGINA Dashboard de vendas 
