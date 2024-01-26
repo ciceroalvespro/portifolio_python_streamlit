@@ -202,7 +202,7 @@ elif page == 'Análise de Ações':
         df2_filtred = df_2[df_2['SETORES'] == selected_setor]
     st.markdown("2. Modelo ")
     st.markdown("""
-                P/L < 10  &  P/VP < 5
+                Classificação com Filtros de Precificação ( P/L entre 0 e 10, P/VP menor que 5 )
                 """)
     st.write(df2_filtred)
 
