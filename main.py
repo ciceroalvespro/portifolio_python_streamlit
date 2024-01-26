@@ -322,23 +322,18 @@ elif page == 'Ranking de Aeroportos':
     filtro_ano = 2023
     filtro_ano = st.sidebar.selectbox("Ano", df_anac["ANO"].unique())
 
+    # layout dos graficos
+    col1, col2 = st.columns(2)
+    
     # PAX
     # preparando o grafico
-    df_anac = df_anac[df_anac["ANO"]== filtro_ano]
+    df_anac = df_anac[df_anac["ANO"] == filtro_ano]
     df_anac_group_pax = df_anac.groupby("AERODROMO")["PASSAGEIROS"].sum().reset_index()
     df_anac_group_pax = df_anac_group_pax.sort_values("PASSAGEIROS", ascending=False)
     df_anac_group_pax = df_anac_group_pax.head(10)
     # criando o grafico pax
     fig_pax = px.bar(df_anac_group_pax, x="AERODROMO", y="PASSAGEIROS", title="Ranking de aeródromos por passageiro - Top 10")
-    fig_pax
-
-    # CARGO
-    # preparando o grafico
-    df_anac_group_cargo = df_anac.groupby("AERODROMO")["CARGA PAGA (KG)"].sum().reset_index()
-    df_anac_group_cargo = df_anac_group_cargo.sort_values("CARGA PAGA (KG)", ascending=False)
-    df_anac_group_cargo = df_anac_group_cargo.head(10)
-    # criando o grafico pax
-    fig_pax = px.bar(df_anac_group_cargo, x="AERODROMO", y="CARGA PAGA (KG)", title="Ranking de aeródromos por carga aérea - Top 10")
+    col1.plotly_chart(fig_pax, use_container_width=True)
 
     # MOVIMENTOS
     # preparando o grafico
@@ -346,7 +341,17 @@ elif page == 'Ranking de Aeroportos':
     df_anac_group_atm = df_anac_group_atm.sort_values("DECOLAGENS", ascending=False)
     df_anac_group_atm = df_anac_group_atm.head(10)
     # criando o grafico pax
-    fig_pax = px.bar(df_anac_group_atm, x="AERODROMO", y="DECOLAGENS", title="Ranking de aeródromos por aeronave - Top 10")
+    fig_atm = px.bar(df_anac_group_atm, x="AERODROMO", y="DECOLAGENS", title="Ranking de aeródromos por aeronave - Top 10")
+    col2.plotly_chart(fig_atm, use_container_width=True)
+    
+    # CARGO
+    # preparando o grafico
+    df_anac_group_cargo = df_anac.groupby("AERODROMO")["CARGA PAGA (KG)"].sum().reset_index()
+    df_anac_group_cargo = df_anac_group_cargo.sort_values("CARGA PAGA (KG)", ascending=False)
+    df_anac_group_cargo = df_anac_group_cargo.head(10)
+    # criando o grafico pax
+    fig_cargo = px.bar(df_anac_group_cargo, x="AERODROMO", y="CARGA PAGA (KG)", title="Ranking de aeródromos por carga aérea - Top 10")
+    fig_cargo
     
     
     
