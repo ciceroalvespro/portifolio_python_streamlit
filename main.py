@@ -15,7 +15,7 @@ st.set_page_config(
 # Mudar a pagina pelo side bar
 st.sidebar.title('Portfolio')
 page = st.sidebar.radio(
-    'Projetos', ['Apresentação', 'Análise de Ações', 'Dashboard de vendas', 'Ranking Aeroportos'])
+    'Projetos', ['Apresentação', 'Análise de Ações', 'Dashboard de vendas', 'Ranking de Aeroportos'])
 
 ###############################################################################################################################################
 # Página de Apresentação
@@ -266,6 +266,7 @@ elif page == 'Análise de Ações':
 ###############################################################################################################################################
 # PAGINA RANKING AEROPORTOS BRASILEIROS - ANAC 
 ###############################################################################################################################################
+
 elif page == 'Ranking de Aeroportos':
     # Título da página
     st.subheader(":bar_chart: Ranking de Aeroportos Brasileiros")
@@ -318,12 +319,11 @@ elif page == 'Ranking de Aeroportos':
     
     # filtros
     st.sidebar.title("Filtros")
-    ANO = st.sidebar.selectbox("Ano", df_anac["ANO"].unique())
+    filtro_ano = st.sidebar.selectbox("Ano", df_anac["ANO"].unique())
 
     # PAX
     # preparando o grafico
-    ANO = 2023
-    df_anac = df_anac[df_anac["ANO"]== ANO]
+    df_anac = df_anac[df_anac["ANO"]== filtro_ano]
     df_anac_group_pax = df_anac.groupby("AERODROMO")["PASSAGEIROS"].sum().reset_index()
     df_anac_group_pax = df_anac_group_pax.sort_values("PASSAGEIROS", ascending=False)
     df_anac_group_pax = df_anac_group_pax.head(10)
@@ -345,8 +345,6 @@ elif page == 'Ranking de Aeroportos':
     df_anac_group_atm = df_anac_group_atm.head(10)
     # criando o grafico pax
     fig_pax = px.bar(df_anac_group_atm, x="AERODROMO", y="DECOLAGENS", title="Ranking de aeródromos por aeronave - Top 10")
-    
-    
     
     
     
