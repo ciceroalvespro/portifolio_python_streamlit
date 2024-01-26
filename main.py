@@ -273,8 +273,8 @@ else:
     # criando uma coluna Month para visualizar mes a mes no formato ex. 2023-1
     df["Month"] = df["Date"].apply(lambda x: str(x.year) + "-" + str(x.month))
     # criando a side bar do dash e uma select box com os dados da coluna month crianda
-    st.sidebar.title("Filters")
-    month = st.sidebar.selectbox("Month", df["Month"].unique())
+    st.sidebar.title("Filtros")
+    month = st.sidebar.selectbox("Mês", df["Month"].unique())
     # criando um df filtrado pelo mes selecionando no selectbox
     df_filtered = df[df["Month"] == month]
     # definindo os containers onde os graficos ficaram no dash
