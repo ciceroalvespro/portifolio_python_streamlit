@@ -330,6 +330,7 @@ elif page == 'Ranking de Aeroportos':
     df_anac_group_pax = df_anac_group_pax.head(10)
     # criando o grafico pax
     fig_pax = px.bar(df_anac_group_pax, x="AERODROMO", y="PASSAGEIROS", title="Ranking de aeródromos por passageiro - Top 10")
+    fig_pax.show()
 
     # CARGO
     # preparando o grafico
