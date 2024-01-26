@@ -1,0 +1,607 @@
+Papel;SETORES
+AHEB3;Consumo Cíclico
+AHEB5;Consumo Cíclico
+AHEB6;Consumo Cíclico
+ALLD3;Consumo Cíclico
+ALPA3;Consumo Cíclico
+ALPA4;Consumo Cíclico
+AMAR3;Consumo Cíclico
+AMER3;Consumo Cíclico
+ANIM3;Consumo Cíclico
+ARZZ3;Consumo Cíclico
+AVLL3;Consumo Cíclico
+BAHI3;Consumo Cíclico
+BHIA3;Consumo Cíclico
+BMKS3;Consumo Cíclico
+CALI3;Consumo Cíclico
+CALI4;Consumo Cíclico
+CAMB3;Consumo Cíclico
+CAMB4;Consumo Cíclico
+CATA3;Consumo Cíclico
+CATA4;Consumo Cíclico
+CEAB3;Consumo Cíclico
+CEDO3;Consumo Cíclico
+CEDO4;Consumo Cíclico
+CGRA3;Consumo Cíclico
+CGRA4;Consumo Cíclico
+CNSY3;Consumo Cíclico
+COGN3;Consumo Cíclico
+CSED3;Consumo Cíclico
+CTKA3;Consumo Cíclico
+CTKA4;Consumo Cíclico
+CTNM3;Consumo Cíclico
+CTNM4;Consumo Cíclico
+CTSA3;Consumo Cíclico
+CTSA4;Consumo Cíclico
+CTSA8;Consumo Cíclico
+CURY3;Consumo Cíclico
+CVCB3;Consumo Cíclico
+CYRE3;Consumo Cíclico
+DIRR3;Consumo Cíclico
+DOHL3;Consumo Cíclico
+DOHL4;Consumo Cíclico
+ECPR3;Consumo Cíclico
+ECPR4;Consumo Cíclico
+ESTR3;Consumo Cíclico
+ESTR4;Consumo Cíclico
+EVEN3;Consumo Cíclico
+EZTC3;Consumo Cíclico
+FIEI3;Consumo Cíclico
+GFSA3;Consumo Cíclico
+GRND3;Consumo Cíclico
+GUAR3;Consumo Cíclico
+GUAR4;Consumo Cíclico
+HBOR3;Consumo Cíclico
+HETA3;Consumo Cíclico
+HETA4;Consumo Cíclico
+HGTX3;Consumo Cíclico
+HOOT3;Consumo Cíclico
+HOOT4;Consumo Cíclico
+INNT3;Consumo Cíclico
+JFEN3;Consumo Cíclico
+JHSF3;Consumo Cíclico
+LAME3;Consumo Cíclico
+LAME4;Consumo Cíclico
+LAVV3;Consumo Cíclico
+LCAM3;Consumo Cíclico
+LEVE3;Consumo Cíclico
+LJQQ3;Consumo Cíclico
+LREN3;Consumo Cíclico
+MBLY3;Consumo Cíclico
+MDNE3;Consumo Cíclico
+MEAL3;Consumo Cíclico
+MELK3;Consumo Cíclico
+MGLU3;Consumo Cíclico
+MNDL3;Consumo Cíclico
+MOVI3;Consumo Cíclico
+MRVE3;Consumo Cíclico
+MSPA3;Consumo Cíclico
+MSPA4;Consumo Cíclico
+MSRO3;Consumo Cíclico
+MTRE3;Consumo Cíclico
+MYPK3;Consumo Cíclico
+NAFG3;Consumo Cíclico
+NAFG4;Consumo Cíclico
+PDGR3;Consumo Cíclico
+PETZ3;Consumo Cíclico
+PLAS3;Consumo Cíclico
+PLPL3;Consumo Cíclico
+PTNT3;Consumo Cíclico
+PTNT4;Consumo Cíclico
+RDNI3;Consumo Cíclico
+RENT3;Consumo Cíclico
+RSID3;Consumo Cíclico
+SBFG3;Consumo Cíclico
+SEDU3;Consumo Cíclico
+SEER3;Consumo Cíclico
+SGPS3;Consumo Cíclico
+SHOW3;Consumo Cíclico
+SLED3;Consumo Cíclico
+SLED4;Consumo Cíclico
+SMFT3;Consumo Cíclico
+SMLS3;Consumo Cíclico
+SOMA3;Consumo Cíclico
+STKF3;Consumo Cíclico
+TCSA3;Consumo Cíclico
+TECN3;Consumo Cíclico
+TEKA3;Consumo Cíclico
+TEKA4;Consumo Cíclico
+TEND3;Consumo Cíclico
+TFCO4;Consumo Cíclico
+TOYB3;Consumo Cíclico
+TOYB4;Consumo Cíclico
+TRIS3;Consumo Cíclico
+TXRX3;Consumo Cíclico
+TXRX4;Consumo Cíclico
+UCAS3;Consumo Cíclico
+VIVA3;Consumo Cíclico
+VIVR3;Consumo Cíclico
+VSTE3;Consumo Cíclico
+VULC3;Consumo Cíclico
+VVAR11;Consumo Cíclico
+VVAR4;Consumo Cíclico
+WEST3;Consumo Cíclico
+WHRL3;Consumo Cíclico
+WHRL4;Consumo Cíclico
+YDUQ3;Consumo Cíclico
+ZAMP3;Consumo Cíclico
+ABEV3;Consumo Não Cíclico
+AGRO3;Consumo Não Cíclico
+AGXY3;Consumo Não Cíclico
+APTI3;Consumo Não Cíclico
+APTI4;Consumo Não Cíclico
+ASAI3;Consumo Não Cíclico
+BAUH4;Consumo Não Cíclico
+BEEF11;Consumo Não Cíclico
+BEEF3;Consumo Não Cíclico
+BOBR3;Consumo Não Cíclico
+BOBR4;Consumo Não Cíclico
+BRFS3;Consumo Não Cíclico
+BSEV3;Consumo Não Cíclico
+CAML3;Consumo Não Cíclico
+CRFB3;Consumo Não Cíclico
+CTCA3;Consumo Não Cíclico
+ESPA3;Consumo Não Cíclico
+FRTA3;Consumo Não Cíclico
+GMAT3;Consumo Não Cíclico
+GRAO3;Consumo Não Cíclico
+JALL3;Consumo Não Cíclico
+JBSS3;Consumo Não Cíclico
+JOPA3;Consumo Não Cíclico
+JOPA4;Consumo Não Cíclico
+LAND3;Consumo Não Cíclico
+MDIA3;Consumo Não Cíclico
+MNPR3;Consumo Não Cíclico
+MRFG3;Consumo Não Cíclico
+NTCO3;Consumo Não Cíclico
+ODER4;Consumo Não Cíclico
+PCAR3;Consumo Não Cíclico
+PCAR4;Consumo Não Cíclico
+SLCE3;Consumo Não Cíclico
+SMTO3;Consumo Não Cíclico
+SOJA3;Consumo Não Cíclico
+TESA3;Consumo Não Cíclico
+TTEN3;Consumo Não Cíclico
+AESB3;Utilidade Pública
+AFLT3;Utilidade Pública
+ALUP11;Utilidade Pública
+ALUP3;Utilidade Pública
+ALUP4;Utilidade Pública
+AMBP3;Utilidade Pública
+AURE3;Utilidade Pública
+CASN3;Utilidade Pública
+CASN4;Utilidade Pública
+CBEE3;Utilidade Pública
+CEBR3;Utilidade Pública
+CEBR5;Utilidade Pública
+CEBR6;Utilidade Pública
+CEEB3;Utilidade Pública
+CEEB5;Utilidade Pública
+CEEB6;Utilidade Pública
+CEED3;Utilidade Pública
+CEED4;Utilidade Pública
+CEGR3;Utilidade Pública
+CEPE3;Utilidade Pública
+CEPE5;Utilidade Pública
+CEPE6;Utilidade Pública
+CESP3;Utilidade Pública
+CESP5;Utilidade Pública
+CESP6;Utilidade Pública
+CGAS3;Utilidade Pública
+CGAS5;Utilidade Pública
+CLSC3;Utilidade Pública
+CLSC4;Utilidade Pública
+CMIG3;Utilidade Pública
+CMIG4;Utilidade Pública
+COCE3;Utilidade Pública
+COCE5;Utilidade Pública
+COCE6;Utilidade Pública
+CPFE3;Utilidade Pública
+CPLE11;Utilidade Pública
+CPLE3;Utilidade Pública
+CPLE5;Utilidade Pública
+CPLE6;Utilidade Pública
+CPRE3;Utilidade Pública
+CSMG3;Utilidade Pública
+CSRN3;Utilidade Pública
+CSRN5;Utilidade Pública
+CSRN6;Utilidade Pública
+EEEL3;Utilidade Pública
+EEEL4;Utilidade Pública
+EGIE3;Utilidade Pública
+EKTR3;Utilidade Pública
+EKTR4;Utilidade Pública
+ELET3;Utilidade Pública
+ELET5;Utilidade Pública
+ELET6;Utilidade Pública
+ELPL3;Utilidade Pública
+EMAE3;Utilidade Pública
+EMAE4;Utilidade Pública
+ENBR3;Utilidade Pública
+ENEV3;Utilidade Pública
+ENGI11;Utilidade Pública
+ENGI3;Utilidade Pública
+ENGI4;Utilidade Pública
+ENMA3B;Utilidade Pública
+ENMA6B;Utilidade Pública
+ENMT3;Utilidade Pública
+ENMT4;Utilidade Pública
+EQPA3;Utilidade Pública
+EQPA5;Utilidade Pública
+EQPA6;Utilidade Pública
+EQPA7;Utilidade Pública
+EQTL3;Utilidade Pública
+GEPA3;Utilidade Pública
+GEPA4;Utilidade Pública
+GPAR3;Utilidade Pública
+IGSN3;Utilidade Pública
+LIGT3;Utilidade Pública
+LIPR3;Utilidade Pública
+NEOE3;Utilidade Pública
+OMGE3;Utilidade Pública
+ORVR3;Utilidade Pública
+POWE3;Utilidade Pública
+REDE3;Utilidade Pública
+RNEW11;Utilidade Pública
+RNEW3;Utilidade Pública
+RNEW4;Utilidade Pública
+SAPR11;Utilidade Pública
+SAPR3;Utilidade Pública
+SAPR4;Utilidade Pública
+SBSP3;Utilidade Pública
+SRNA3;Utilidade Pública
+TAEE11;Utilidade Pública
+TAEE3;Utilidade Pública
+TAEE4;Utilidade Pública
+TIET11;Utilidade Pública
+TIET3;Utilidade Pública
+TIET4;Utilidade Pública
+TRPL3;Utilidade Pública
+TRPL4;Utilidade Pública
+AERI3;Bens Industriais
+ALPK3;Bens Industriais
+ARML3;Bens Industriais
+ATMP3;Bens Industriais
+AZEV3;Bens Industriais
+AZEV4;Bens Industriais
+AZUL4;Bens Industriais
+BBML3;Bens Industriais
+BDLL3;Bens Industriais
+BDLL4;Bens Industriais
+CCRO3;Bens Industriais
+CSUD3;Bens Industriais
+DTCY3;Bens Industriais
+DTCY4;Bens Industriais
+EALT3;Bens Industriais
+EALT4;Bens Industriais
+ECOR3;Bens Industriais
+EMBR3;Bens Industriais
+ETER3;Bens Industriais
+FLEX3;Bens Industriais
+FRAS3;Bens Industriais
+FRIO3;Bens Industriais
+GGPS3;Bens Industriais
+GOLL4;Bens Industriais
+HAGA3;Bens Industriais
+HAGA4;Bens Industriais
+HBSA3;Bens Industriais
+INEP3;Bens Industriais
+INEP4;Bens Industriais
+JSLG3;Bens Industriais
+KEPL3;Bens Industriais
+LOGN3;Bens Industriais
+LUXM3;Bens Industriais
+LUXM4;Bens Industriais
+MILS3;Bens Industriais
+MRSA3B;Bens Industriais
+MRSA5B;Bens Industriais
+MRSA6B;Bens Industriais
+MTSA3;Bens Industriais
+MTSA4;Bens Industriais
+MWET3;Bens Industriais
+MWET4;Bens Industriais
+NORD3;Bens Industriais
+OPCT3;Bens Industriais
+POMO3;Bens Industriais
+POMO4;Bens Industriais
+PORT3;Bens Industriais
+PRNR3;Bens Industriais
+PTBL3;Bens Industriais
+PTCA11;Bens Industriais
+PTCA3;Bens Industriais
+RAIL3;Bens Industriais
+RAPT3;Bens Industriais
+RAPT4;Bens Industriais
+RCSL3;Bens Industriais
+RCSL4;Bens Industriais
+RLOG3;Bens Industriais
+ROMI3;Bens Industriais
+RSUL3;Bens Industriais
+RSUL4;Bens Industriais
+SEQL3;Bens Industriais
+SHUL3;Bens Industriais
+SHUL4;Bens Industriais
+SOND3;Bens Industriais
+SOND5;Bens Industriais
+SOND6;Bens Industriais
+STBP3;Bens Industriais
+STTR3;Bens Industriais
+TASA3;Bens Industriais
+TASA4;Bens Industriais
+TCNO3;Bens Industriais
+TCNO4;Bens Industriais
+TGMA3;Bens Industriais
+TPIS3;Bens Industriais
+TUPY3;Bens Industriais
+VAMO3;Bens Industriais
+VLID3;Bens Industriais
+VSPT3;Bens Industriais
+VSPT4;Bens Industriais
+WEGE3;Bens Industriais
+WLMM3;Bens Industriais
+WLMM4;Bens Industriais
+AURA33;Materiais Básicos
+BRAP3;Materiais Básicos
+BRAP4;Materiais Básicos
+BRKM3;Materiais Básicos
+BRKM5;Materiais Básicos
+BRKM6;Materiais Básicos
+CBAV3;Materiais Básicos
+CMIN3;Materiais Básicos
+CRPG3;Materiais Básicos
+CRPG5;Materiais Básicos
+CRPG6;Materiais Básicos
+CSNA3;Materiais Básicos
+DEXP3;Materiais Básicos
+DEXP4;Materiais Básicos
+DXCO3;Materiais Básicos
+ELEK3;Materiais Básicos
+ELEK4;Materiais Básicos
+EUCA3;Materiais Básicos
+EUCA4;Materiais Básicos
+FBMC3;Materiais Básicos
+FBMC4;Materiais Básicos
+FESA3;Materiais Básicos
+FESA4;Materiais Básicos
+FHER3;Materiais Básicos
+GGBR3;Materiais Básicos
+GGBR4;Materiais Básicos
+GOAU3;Materiais Básicos
+GOAU4;Materiais Básicos
+KLBN11;Materiais Básicos
+KLBN3;Materiais Básicos
+KLBN4;Materiais Básicos
+LTEL3B;Materiais Básicos
+MGEL3;Materiais Básicos
+MGEL4;Materiais Básicos
+MMXM3;Materiais Básicos
+MTIG3;Materiais Básicos
+MTIG4;Materiais Básicos
+NEMO3;Materiais Básicos
+NEMO5;Materiais Básicos
+NEMO6;Materiais Básicos
+NUTR3;Materiais Básicos
+PATI3;Materiais Básicos
+PATI4;Materiais Básicos
+PMAM3;Materiais Básicos
+RANI3;Materiais Básicos
+RANI4;Materiais Básicos
+SNSY3;Materiais Básicos
+SNSY5;Materiais Básicos
+SNSY6;Materiais Básicos
+SUZB3;Materiais Básicos
+TKNO3;Materiais Básicos
+TKNO4;Materiais Básicos
+UNIP3;Materiais Básicos
+UNIP5;Materiais Básicos
+UNIP6;Materiais Básicos
+USIM3;Materiais Básicos
+USIM5;Materiais Básicos
+USIM6;Materiais Básicos
+VALE3;Materiais Básicos
+VITT3;Materiais Básicos
+ABCB4;Financeiros e Outros
+ALOS3;Financeiros e Outros
+APER3;Financeiros e Outros
+ATOM3;Financeiros e Outros
+B3SA3;Financeiros e Outros
+BAZA3;Financeiros e Outros
+BBAS3;Financeiros e Outros
+BBDC3;Financeiros e Outros
+BBDC4;Financeiros e Outros
+BBSE3;Financeiros e Outros
+BEES3;Financeiros e Outros
+BEES4;Financeiros e Outros
+BFRE11;Financeiros e Outros
+BFRE12;Financeiros e Outros
+BGIP3;Financeiros e Outros
+BGIP4;Financeiros e Outros
+BIDI11;Financeiros e Outros
+BIDI3;Financeiros e Outros
+BIDI4;Financeiros e Outros
+BLUT3;Financeiros e Outros
+BLUT4;Financeiros e Outros
+BMEB3;Financeiros e Outros
+BMEB4;Financeiros e Outros
+BMGB4;Financeiros e Outros
+BMIN3;Financeiros e Outros
+BMIN4;Financeiros e Outros
+BNBR3;Financeiros e Outros
+BOAS3;Financeiros e Outros
+BPAC11;Financeiros e Outros
+BPAC3;Financeiros e Outros
+BPAC5;Financeiros e Outros
+BPAN4;Financeiros e Outros
+BPAR3;Financeiros e Outros
+BPAT33;Financeiros e Outros
+BRBI11;Financeiros e Outros
+BRBI3;Financeiros e Outros
+BRBI4;Financeiros e Outros
+BRGE11;Financeiros e Outros
+BRGE12;Financeiros e Outros
+BRGE3;Financeiros e Outros
+BRGE5;Financeiros e Outros
+BRGE6;Financeiros e Outros
+BRGE7;Financeiros e Outros
+BRGE8;Financeiros e Outros
+BRIV3;Financeiros e Outros
+BRIV4;Financeiros e Outros
+BRML3;Financeiros e Outros
+BRPR3;Financeiros e Outros
+BRSR3;Financeiros e Outros
+BRSR5;Financeiros e Outros
+BRSR6;Financeiros e Outros
+BSLI3;Financeiros e Outros
+BSLI4;Financeiros e Outros
+BTTL4;Financeiros e Outros
+CCXC3;Financeiros e Outros
+CIEL3;Financeiros e Outros
+CMSA3;Financeiros e Outros
+CMSA4;Financeiros e Outros
+CORR3;Financeiros e Outros
+CORR4;Financeiros e Outros
+CRIV3;Financeiros e Outros
+CRIV4;Financeiros e Outros
+CSAB3;Financeiros e Outros
+CSAB4;Financeiros e Outros
+CXSE3;Financeiros e Outros
+EPAR3;Financeiros e Outros
+FIGE3;Financeiros e Outros
+FIGE4;Financeiros e Outros
+FNCN3;Financeiros e Outros
+FTRT3B;Financeiros e Outros
+G2DI33;Financeiros e Outros
+GETT11;Financeiros e Outros
+GETT3;Financeiros e Outros
+GETT4;Financeiros e Outros
+GPIV33;Financeiros e Outros
+GSHP3;Financeiros e Outros
+HBRE3;Financeiros e Outros
+HBTS5;Financeiros e Outros
+IDVL3;Financeiros e Outros
+IDVL4;Financeiros e Outros
+IGBR3;Financeiros e Outros
+IGTA3;Financeiros e Outros
+IGTI11;Financeiros e Outros
+IGTI3;Financeiros e Outros
+IGTI4;Financeiros e Outros
+IRBR3;Financeiros e Outros
+ITSA3;Financeiros e Outros
+ITSA4;Financeiros e Outros
+ITUB3;Financeiros e Outros
+ITUB4;Financeiros e Outros
+LHER3;Financeiros e Outros
+LHER4;Financeiros e Outros
+LOGG3;Financeiros e Outros
+LPSB3;Financeiros e Outros
+MAPT3;Financeiros e Outros
+MAPT4;Financeiros e Outros
+MERC3;Financeiros e Outros
+MERC4;Financeiros e Outros
+MOAR3;Financeiros e Outros
+MODL11;Financeiros e Outros
+MODL3;Financeiros e Outros
+MODL4;Financeiros e Outros
+MULT3;Financeiros e Outros
+NEXP3;Financeiros e Outros
+PDTC3;Financeiros e Outros
+PEAB3;Financeiros e Outros
+PEAB4;Financeiros e Outros
+PINE3;Financeiros e Outros
+PINE4;Financeiros e Outros
+PPAR3;Financeiros e Outros
+PPLA11;Financeiros e Outros
+PSSA3;Financeiros e Outros
+QVQP3B;Financeiros e Outros
+RPAD3;Financeiros e Outros
+RPAD5;Financeiros e Outros
+RPAD6;Financeiros e Outros
+SANB11;Financeiros e Outros
+SANB3;Financeiros e Outros
+SANB4;Financeiros e Outros
+SCAR3;Financeiros e Outros
+SIMH3;Financeiros e Outros
+SPRT3B;Financeiros e Outros
+SULA11;Financeiros e Outros
+SULA3;Financeiros e Outros
+SULA4;Financeiros e Outros
+SYNE3;Financeiros e Outros
+WIZC3;Financeiros e Outros
+BMOB3;Tecnologia da Informação
+BRQB3;Tecnologia da Informação
+CASH3;Tecnologia da Informação
+CLSA3;Tecnologia da Informação
+DOTZ3;Tecnologia da Informação
+ENJU3;Tecnologia da Informação
+IFCM3;Tecnologia da Informação
+INTB3;Tecnologia da Informação
+ITEC3;Tecnologia da Informação
+LINX3;Tecnologia da Informação
+LVTC3;Tecnologia da Informação
+LWSA3;Tecnologia da Informação
+MLAS3;Tecnologia da Informação
+MOSI3;Tecnologia da Informação
+NGRD3;Tecnologia da Informação
+NINJ3;Tecnologia da Informação
+POSI3;Tecnologia da Informação
+QUSW3;Tecnologia da Informação
+SQIA3;Tecnologia da Informação
+TOTS3;Tecnologia da Informação
+TRAD3;Tecnologia da Informação
+AALR3;Saúde
+ADHM3;Saúde
+BALM3;Saúde
+BALM4;Saúde
+BIOM3;Saúde
+BLAU3;Saúde
+BPHA3;Saúde
+CREM3;Saúde
+DASA3;Saúde
+DMVF3;Saúde
+FLRY3;Saúde
+GBIO33;Saúde
+GNDI3;Saúde
+HAPV3;Saúde
+HYPE3;Saúde
+KRSA3;Saúde
+MATD3;Saúde
+NRTQ3;Saúde
+ODPV3;Saúde
+OFSA3;Saúde
+ONCO3;Saúde
+PARD3;Saúde
+PFRM3;Saúde
+PGMN3;Saúde
+PNVL3;Saúde
+PNVL4;Saúde
+QUAL3;Saúde
+RADL3;Saúde
+RDOR3;Saúde
+VVEO3;Saúde
+CSAN3;Petróleo e Gás
+DMMO11;Petróleo e Gás
+DMMO3;Petróleo e Gás
+ENAT3;Petróleo e Gás
+LUPA3;Petróleo e Gás
+OGXP3;Petróleo e Gás
+OSXB3;Petróleo e Gás
+PETR3;Petróleo e Gás
+PETR4;Petróleo e Gás
+PRIO3;Petróleo e Gás
+RAIZ4;Petróleo e Gás
+RECV3;Petróleo e Gás
+RPMG3;Petróleo e Gás
+RRRP3;Petróleo e Gás
+UGPA3;Petróleo e Gás
+VBBR3;Petróleo e Gás
+BRIT3;Comunicações
+DESK3;Comunicações
+ELMD3;Comunicações
+FIQE3;Comunicações
+OIBR3;Comunicações
+OIBR4;Comunicações
+TELB3;Comunicações
+TELB4;Comunicações
+TIMS3;Comunicações
+VIVT3;Comunicações
+VIVT4;Comunicações
