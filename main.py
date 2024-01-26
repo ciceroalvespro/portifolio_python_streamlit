@@ -323,10 +323,7 @@ elif page == 'Ranking de Aeroportos':
     st.sidebar.title("Filtros")
     filtro_ano = st.sidebar.selectbox("Ano", df_anac["ANO"].unique())
     filtro_graficos = st.sidebar.selectbox('Gráficos', ['Passageiros', 'Movimentos', 'Carga Aérea'])
-    
-    # layout dos graficos
-    col1, col2 = st.columns(2)
-    col3, col4 = st.columns(2)
+        
     
     if filtro_graficos == "Passageiros":
         # PAX
@@ -350,9 +347,14 @@ elif page == 'Ranking de Aeroportos':
         fig_atm = px.bar(df_anac_group_atm, x="AERODROMO", y="DECOLAGENS", title="Ranking de aeródromos por movimentos - Top 10")
         #col2.plotly_chart(fig_atm, use_container_width=True)
         fig_atm
+        
     else:
         # CARGO
         # preparando o grafico
+        # layout dos graficos
+        
+        col1, col2 = st.columns(2)
+               
         df_anac_group_cargo = df_anac.groupby("AERODROMO")["CARGA PAGA (KG)"].sum().reset_index()
         df_anac_group_cargo = df_anac_group_cargo.sort_values("CARGA PAGA (KG)", ascending=False)
         df_anac_group_cargo = df_anac_group_cargo.head(10)
