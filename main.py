@@ -328,7 +328,6 @@ elif page == 'Ranking de Aeroportos':
     if filtro_graficos == "Passageiros":
         # PAX
         # preparando o grafico
-        st.markdown("*Passageiros - {filtro_ano}*")
         df_anac = df_anac[df_anac["ANO"] == filtro_ano]
         df_anac_group_pax = df_anac.groupby("AERODROMO")["PASSAGEIROS"].sum().reset_index()
         df_anac_group_pax = df_anac_group_pax.sort_values("PASSAGEIROS", ascending=False)
