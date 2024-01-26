@@ -339,7 +339,7 @@ elif page == 'Ranking de Aeroportos':
         fig_pax = px.bar(df_anac_group_pax, x="AERODROMO", y="PASSAGEIROS", title="Ranking de aeródromos por passageiro - Top 10")
         fig_pax.update_traces(texttemplate='%{value}', textposition='outside')
         #col1.plotly_chart(fig_pax, use_container_width=True)
-        fig_pax
+        #fig_pax
 
     elif filtro_graficos == "Movimentos":
         # MOVIMENTOS
