@@ -319,6 +319,7 @@ elif page == 'Ranking de Aeroportos':
     
     # filtros
     st.sidebar.title("Filtros")
+    filtro_ano = 2023
     filtro_ano = st.sidebar.selectbox("Ano", df_anac["ANO"].unique())
 
     # PAX
