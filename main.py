@@ -270,7 +270,7 @@ elif page == 'Análise de Ações':
 elif page == 'Ranking de Aeroportos':
     
     # Título da página
-    st.subheader(":bar_chart: Ranking - Aeroportos Brasileiros")
+    st.subheader(":bar_chart: Ranking de Aeroportos Brasileiros")
     st.markdown("*Fonte: Dados estatísticos publicados pela ANAC - Agência Nacional de Aviação Civil*")
 
     # st.markdown("#")
@@ -378,7 +378,7 @@ elif page == 'Ranking de Aeroportos':
     
     st.markdown("#")
     st.markdown("""---""")
-    st.markdown("*Cicero G. Silva Alves*")
+    st.markdown("*Dados atualizados até 31 de dezembro de 2023*")
 ###############################################################################################################################################
 # PAGINA Dashboard de vendas 
 ###############################################################################################################################################    
