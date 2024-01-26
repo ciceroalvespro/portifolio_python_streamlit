@@ -268,8 +268,7 @@ elif page == 'Análise de Ações':
 ###############################################################################################################################################
 
 elif page == 'Ranking de Aeroportos':
-    Gráficos = st.sidebar.selectbox('Gráficos', ['Passageiros', 'Movimentos', 'Carga Aérea'])
-
+    
     # Título da página
     st.subheader(":bar_chart: Ranking de Aeroportos Brasileiros")
     st.markdown("*Fonte: Dados estatísticos publicados pela ANAC - Agência Nacional de Aviação Civil*")
@@ -324,6 +323,7 @@ elif page == 'Ranking de Aeroportos':
     # filtros
     st.sidebar.title("Filtros")
     filtro_ano = st.sidebar.selectbox("Ano", df_anac["ANO"].unique())
+    Gráficos = st.sidebar.selectbox('Gráficos', ['Passageiros', 'Movimentos', 'Carga Aérea'])
     
     # layout dos graficos
     col1, col2 = st.columns(2)
