@@ -270,7 +270,7 @@ elif page == 'Análise de Ações':
 elif page == 'Ranking de Aeroportos':
     
     # Título da página
-    st.subheader(":bar_chart: Ranking de Aeroportos Brasileiros")
+    st.subheader(":bar_chart: Ranking - Aeroportos Brasileiros")
     st.markdown("*Fonte: Dados estatísticos publicados pela ANAC - Agência Nacional de Aviação Civil*")
 
     # st.markdown("#")
