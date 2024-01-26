@@ -270,6 +270,8 @@ elif page == 'Análise de Ações':
 elif page == 'Ranking de Aeroportos':
     # Título da página
     st.subheader(":bar_chart: Ranking de Aeroportos Brasileiros")
+    st.markdown("*Fonte: Dados estatísticos publicados pela ANAC - Agência Nacional de Aviação Civil*")
+
     # st.markdown("#")
     st.markdown("""---""")
     
@@ -319,12 +321,11 @@ elif page == 'Ranking de Aeroportos':
     
     # filtros
     st.sidebar.title("Filtros")
-    filtro_ano = 2023
     filtro_ano = st.sidebar.selectbox("Ano", df_anac["ANO"].unique())
-
+    
     # layout dos graficos
     col1, col2 = st.columns(2)
-    
+
     # PAX
     # preparando o grafico
     df_anac = df_anac[df_anac["ANO"] == filtro_ano]
@@ -341,7 +342,7 @@ elif page == 'Ranking de Aeroportos':
     df_anac_group_atm = df_anac_group_atm.sort_values("DECOLAGENS", ascending=False)
     df_anac_group_atm = df_anac_group_atm.head(10)
     # criando o grafico pax
-    fig_atm = px.bar(df_anac_group_atm, x="AERODROMO", y="DECOLAGENS", title="Ranking de aeródromos por aeronave - Top 10")
+    fig_atm = px.bar(df_anac_group_atm, x="AERODROMO", y="DECOLAGENS", title="Ranking de aeródromos por movimentos - Top 10")
     col2.plotly_chart(fig_atm, use_container_width=True)
     
     # CARGO
@@ -352,13 +353,6 @@ elif page == 'Ranking de Aeroportos':
     # criando o grafico pax
     fig_cargo = px.bar(df_anac_group_cargo, x="AERODROMO", y="CARGA PAGA (KG)", title="Ranking de aeródromos por carga aérea - Top 10")
     fig_cargo
-    
-    
-    
-    
-    
-    
-    
     
 ###############################################################################################################################################
 # PAGINA Dashboard de vendas 
