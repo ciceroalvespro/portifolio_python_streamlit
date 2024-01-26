@@ -334,6 +334,7 @@ elif page == 'Ranking de Aeroportos':
         df_anac_group_pax = df_anac_group_pax.head(10)
         # criando o grafico pax
         fig_pax = px.bar(df_anac_group_pax, x="AERODROMO", y="PASSAGEIROS", title="Ranking de aeródromos por passageiro - Top 10")
+        fig_pax.update_traces(texttemplate='%{value}', textposition='outside')
         #col1.plotly_chart(fig_pax, use_container_width=True)
         fig_pax
 
@@ -345,6 +346,7 @@ elif page == 'Ranking de Aeroportos':
         df_anac_group_atm = df_anac_group_atm.head(10)
         # criando o grafico pax
         fig_atm = px.bar(df_anac_group_atm, x="AERODROMO", y="DECOLAGENS", title="Ranking de aeródromos por movimentos - Top 10")
+        fig_atm.update_traces(texttemplate='%{value}', textposition='outside')
         #col2.plotly_chart(fig_atm, use_container_width=True)
         fig_atm
         
@@ -360,6 +362,7 @@ elif page == 'Ranking de Aeroportos':
         df_anac_group_cargo = df_anac_group_cargo.head(10)
         # criando o grafico pax
         fig_cargo = px.bar(df_anac_group_cargo, x="AERODROMO", y="CARGA PAGA (KG)", title="Ranking de aeródromos por carga aérea - Top 10")
+        fig_cargo.update_traces(texttemplate='%{value}', textposition='outside')
         col1.plotly_chart(fig_cargo, use_container_width=True)
         
         
@@ -370,6 +373,7 @@ elif page == 'Ranking de Aeroportos':
         df_anac_group_correio = df_anac_group_correio.head(10)
         # criando o grafico pax
         fig_correio = px.bar(df_anac_group_correio, x="AERODROMO", y="CORREIO (KG)", title="Ranking de aeródromos por correio aéreo - Top 10")
+        fig_correio.update_traces(texttemplate='%{value}', textposition='outside')
         col2.plotly_chart(fig_correio, use_container_width=True)
     
     st.markdown("#")
