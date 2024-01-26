@@ -14,7 +14,7 @@ st.set_page_config(
 )
 # Mudar a pagina pelo side bar
 st.sidebar.title('Portfolio')
-page = st.sidebar.radio(
+page = st.sidebar.selectbox(
     'Projetos', ['Apresentação', 'Análise de Ações', 'Dashboard de vendas', 'Ranking de Aeroportos'])
 
 ###############################################################################################################################################
