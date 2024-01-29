@@ -318,7 +318,7 @@ elif page == 'Ranking de Aeroportos':
 
     # crando um data frame unico
     df_anac = pd.concat([df_origem, df_destino], ignore_index=True)
-    ####### ANO
+    filtro_ano = st.sidebar.selectbox("Ano", df_anac["ANO"].unique())
     # filtros
     st.sidebar.title("Filtros")
     
@@ -326,7 +326,7 @@ elif page == 'Ranking de Aeroportos':
         
     
     if filtro_graficos == "Passageiros":
-        filtro_ano = st.sidebar.selectbox("Ano", df_anac["ANO"].unique())
+        
         # PAX
         # preparando o grafico
         df_anac_group_pax = df_anac[df_anac["ANO"] == filtro_ano]
@@ -340,7 +340,7 @@ elif page == 'Ranking de Aeroportos':
         fig_pax
 
     elif filtro_graficos == "Movimentos":
-        filtro_ano = st.sidebar.selectbox("Ano", df_anac["ANO"].unique())
+       
         # MOVIMENTOS
         # preparando o grafico
         df_anac_group_atm = df_anac.groupby("AERODROMO")["DECOLAGENS"].sum().reset_index()
@@ -353,7 +353,7 @@ elif page == 'Ranking de Aeroportos':
         fig_atm
         
     elif filtro_graficos == "Carga Aérea":
-        filtro_ano = st.sidebar.selectbox("Ano", df_anac["ANO"].unique())
+       
         # CARGO
         # preparando o grafico
         # layout dos graficos
