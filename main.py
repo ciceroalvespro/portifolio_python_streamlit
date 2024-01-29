@@ -402,21 +402,54 @@ elif page == 'Ranking de Aeroportos':
         st.markdown("""---""")
 
         filtro_aeroportos = st.sidebar.selectbox("Aeroportos", df_anac["AERODROMO"].unique())
-        filtro_tipo = st.sidebar.select_slider("Opções", ["Passageiros", "Movimentos", "Carga Aérea"])
-        
-  
-        col1, col2 = st.columns(2)
-        
-        df_anac_evo_pax = df_anac[df_anac["AERODROMO"] == filtro_aeroportos]
-        df_anac_evo_pax = df_anac_evo_pax.groupby("MÊS")["PASSAGEIROS"].sum().reset_index()
+        filtro_tipo = st.sidebar.select_slider("Opções", ["Passageiros", "Aeronaves", "Carga Aérea"])
 
-        df_anac_evo_pax_y = df_anac[df_anac["AERODROMO"] == filtro_aeroportos]
-        df_anac_evo_pax_y = df_anac_evo_pax_y.groupby("ANO")["PASSAGEIROS"].sum().reset_index()
-           
-        fig_evo_pax = px.bar(df_anac_evo_pax, x="MÊS", y="PASSAGEIROS", title="Evolução mensal na movimentação de passageiros")
-        fig_ev_ano = px.area(df_anac_evo_pax_y, x="ANO", y="PASSAGEIROS", title="Evolução anual na movimentação de passageiros")
-        col2.plotly_chart(fig_evo_pax, use_container_width=True)
-        col1.plotly_chart(fig_ev_ano, use_container_width=True)
+        if filtro_tipo == "Passageiros":
+            
+            col1, col2 = st.columns(2)
+        
+            df_anac_evo_pax = df_anac[df_anac["AERODROMO"] == filtro_aeroportos]
+            df_anac_evo_pax = df_anac_evo_pax.groupby("MÊS")["PASSAGEIROS"].sum().reset_index()
+    
+            df_anac_evo_pax_y = df_anac[df_anac["AERODROMO"] == filtro_aeroportos]
+            df_anac_evo_pax_y = df_anac_evo_pax_y.groupby("ANO")["PASSAGEIROS"].sum().reset_index()
+               
+            fig_evo_pax = px.bar(df_anac_evo_pax, x="MÊS", y="PASSAGEIROS", title="Evolução mensal na movimentação de passageiros")
+            fig_ev_ano = px.area(df_anac_evo_pax_y, x="ANO", y="PASSAGEIROS", title="Evolução anual na movimentação de passageiros")
+            col2.plotly_chart(fig_evo_pax, use_container_width=True)
+            col1.plotly_chart(fig_ev_ano, use_container_width=True)
+        
+        elif filtro_graficos == "Aeronaves": 
+            
+            col1, col2 = st.columns(2)
+            
+            df_anac_evo_act = df_anac[df_anac["AERODROMO"] == filtro_aeroportos]
+            df_anac_evo_act = df_anac_evo_act.groupby("MÊS")["DECOLAGENS"].sum().reset_index()
+    
+            df_anac_evo_act_y = df_anac[df_anac["AERODROMO"] == filtro_aeroportos]
+            df_anac_evo_act_y = df_anac_evo_act_y.groupby("ANO")["DECOLAGENS"].sum().reset_index()
+    
+            fig_evo_act_y = px.area(df_anac_evo_act_y, x="ANO", y="DECOLAGENS", title="Evolução anual na movimentação de aeronaves")
+            fig_evo_act = px.bar(df_anac_evo_act_y, x="MÊS", y="DECOLAGENS", title="Evolução mensal na movimentação de aeronaves")
+            
+            col1.plotly_chart(fig_evo_act_y, use_container_width=True)
+            col2.plotly_chart(fig_evo_act, use_container_width=True)
+
+        else: 
+            
+            col1, col2 = st.columns(2)
+            
+            df_anac_evo_cargo = df_anac[df_anac["AERODROMO"] == filtro_aeroportos]
+            df_anac_evo_cargo = df_anac_evo_cargo.groupby("MÊS")["CARGA PAGA (KG)"].sum().reset_index()
+    
+            df_anac_evo_cargo_y = df_anac[df_anac["AERODROMO"] == filtro_aeroportos]
+            df_anac_evo_cargo_y = df_anac_evo_cargo_y.groupby("ANO")["CARGA PAGA (KG)"].sum().reset_index()
+    
+            fig_evo_cargo_y = px.area(df_anac_evo_cargo_y, x="ANO", y="CARGA PAGA (KG)", title="Evolução anual na movimentação de carga")
+            fig_evo_cargo = px.bar(df_anac_evo_cargo, x="MÊS", y="CARGA PAGA (KG)", title="Evolução mensal na movimentação de carga")
+            
+            col1.plotly_chart(fig_evo_cargo_y, use_container_width=True)
+            col2.plotly_chart(fig_evo_cargo, use_container_width=True)
         
       
 
