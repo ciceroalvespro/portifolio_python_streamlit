@@ -284,7 +284,7 @@ elif page == 'Ranking de Aeroportos':
     # Iterar sobre os anos de 2013 a 2023
     for year in range(2013, 2024):
         url = base_url.format(year)
-        df = pd.read_csv(url, sep=";",decimal=",")
+        df = pd.read_csv(url, sep=";",decimal=".")
         dfs.append(df)
 
     # Concatenar todos os DataFrames em um único DataFrame
