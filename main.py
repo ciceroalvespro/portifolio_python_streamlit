@@ -400,11 +400,13 @@ elif page == 'Ranking de Aeroportos':
 
         # st.markdown("#")
         st.markdown("""---""")
-        st.write("Evolução PAX")
-        col1, col2 = st.columns(2)
-               
-        
+
         filtro_aeroportos = st.sidebar.selectbox("Aeroportos", df_anac["AERODROMO"].unique())
+        filtro_tipo = st.sidebar.select_slider("Opções", ["Passageiros", "Movimentos", "Carga Aérea"])
+        
+  
+        col1, col2 = st.columns(2)
+        
         df_anac_evo_pax = df_anac[df_anac["AERODROMO"] == filtro_aeroportos]
         df_anac_evo_pax = df_anac_evo_pax.groupby("MÊS")["PASSAGEIROS"].sum().reset_index()
 
@@ -412,11 +414,7 @@ elif page == 'Ranking de Aeroportos':
         df_anac_evo_pax_y = df_anac_evo_pax_y.groupby("ANO")["PASSAGEIROS"].sum().reset_index()
            
         fig_evo_pax = px.bar(df_anac_evo_pax, x="MÊS", y="PASSAGEIROS", title="Evolução mensal na movimentação de passageiros")
-
-
         fig_ev_ano = px.area(df_anac_evo_pax_y, x="ANO", y="PASSAGEIROS", title="Evolução anual na movimentação de passageiros")
-
-        
         col2.plotly_chart(fig_evo_pax, use_container_width=True)
         col1.plotly_chart(fig_ev_ano, use_container_width=True)
         
