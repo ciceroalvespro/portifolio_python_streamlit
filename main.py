@@ -284,7 +284,7 @@ elif page == 'Ranking de Aeroportos':
     # Iterar sobre os anos de 2013 a 2023
     for year in range(2013, 2024):
         url = base_url.format(year)
-        df = pd.read_csv(url, sep=";",decimal=".")
+        df = pd.read_csv(url, sep=";")
         dfs.append(df)
 
     # Concatenar todos os DataFrames em um único DataFrame
@@ -381,16 +381,17 @@ elif page == 'Ranking de Aeroportos':
         col2.plotly_chart(fig_correio, use_container_width=True)
         
     else:
+        filtro_ano = st.sidebar.selectbox("Ano", df_anac["ANO"].unique())
         st.write("Evolução PAX")
         filtro_aeroportos = st.sidebar.selectbox("Aeroportos", df_anac["AERODROMO"].unique())
        
         df_anac_evo_pax = df_anac[df_anac["AERODROMO"] == filtro_aeroportos]
-        df_anac_evo_pax = df_anac_evo_pax.groupby("ANO")["PASSAGEIROS"].sum().reset_index()
+        df_anac_evo_pax = df_anac_evo_pax.groupby("MÊS")["PASSAGEIROS"].sum().reset_index()
         
-        df_anac_evo_pax
+        #df_anac_evo_pax
       
-        #fig_evo_pax = px.bar(df_anac_evo_pax, x="ANO", Y="PASSAGEIROS", title="Evolução na movimentação de passageiros")
-        #fig_evo_pax
+        fig_evo_pax = px.bar(df_anac_evo_pax, x="MÊS", Y="PASSAGEIROS", title="Evolução mensal na movimentação de passageiros")
+        fig_evo_pax
      
      
 
