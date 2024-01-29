@@ -430,7 +430,7 @@ elif page == 'Ranking de Aeroportos':
             df_anac_evo_act_y = df_anac_evo_act_y.groupby("ANO")["DECOLAGENS"].sum().reset_index()
     
             fig_evo_act_y = px.area(df_anac_evo_act_y, x="ANO", y="DECOLAGENS", title="Evolução anual na movimentação de aeronaves")
-            fig_evo_act = px.bar(df_anac_evo_act_y, x="MÊS", y="DECOLAGENS", title="Evolução mensal na movimentação de aeronaves")
+            fig_evo_act = px.bar(df_anac_evo_act, x="MÊS", y="DECOLAGENS", title="Evolução mensal na movimentação de aeronaves")
             
             col1.plotly_chart(fig_evo_act_y, use_container_width=True)
             col2.plotly_chart(fig_evo_act, use_container_width=True)
