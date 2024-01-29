@@ -384,6 +384,7 @@ elif page == 'Ranking de Aeroportos':
         filtro_aeroportos = st.sidebar.selectbox("Aeroportos", df_anac["AERODROMO"].unique())
        
         df_anac_evo_pax = df_anac[df_anac["AERODROMO"] == filtro_aeroportos]
+        df_anac_evo_pax["ANO"] = df_anac_evo_pax["ANO"].str.replace(",","").astype(int)
         df_anac_evo_pax = df_anac_evo_pax.groupby("ANO")["PASSAGEIROS"].sum().reset_index()
         df_anac_evo_pax = df_anac_evo_pax.sort_values("ANO)", ascending=False)
         df_anac_evo_pax
