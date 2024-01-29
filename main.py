@@ -382,6 +382,7 @@ elif page == 'Ranking de Aeroportos':
         df_anac = df_anac[df_anac["AERODROMO"] == filtro_aeroportos]
      
         fig_evo_pax = px.bar(df_anac, x="ANO", y="PASSAGEIROS",title="Evolução de movimentação de passageiros")
+        fig_evo_pax.update_traces(texttemplate='%{value}', textposition='outside')
         fig_evo_pax
 
     
