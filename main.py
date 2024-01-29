@@ -394,9 +394,8 @@ elif page == 'Ranking de Aeroportos':
       
         fig_evo_pax = px.bar(df_anac_evo_pax, x="MÊS", y="PASSAGEIROS", title="Evolução mensal na movimentação de passageiros")
         fig_evo_pax
-        
-        fig_evo_pax_y = px.bar(df_anac_evo_pax, x="ANO", y="PASSAGEIROS", title="Evolução anual na movimentação de passageiros")
-        fig_evo_pax_y
+        df_anac_evo_pax_y
+
      
      
 
