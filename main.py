@@ -269,12 +269,7 @@ elif page == 'Análise de Ações':
 
 elif page == 'Ranking de Aeroportos':
     
-    # Título da página
-    st.subheader(":bar_chart: Ranking de Aeroportos Brasileiros")
-    st.markdown("*Fonte: Dados estatísticos publicados pela ANAC - Agência Nacional de Aviação Civil*")
-
-    # st.markdown("#")
-    st.markdown("""---""")
+   
     
     base_url = "https://raw.githubusercontent.com/ciceroalvespro/portifolio_python_streamlit/master/Dados%20publicos%20anac/dados_publicos_anac_{}.csv"
 
@@ -326,7 +321,12 @@ elif page == 'Ranking de Aeroportos':
         
     
     if filtro_graficos == "Passageiros":
-        
+        # Título da página
+        st.subheader(":bar_chart: Ranking de Aeroportos Brasileiros")
+        st.markdown("*Fonte: Dados estatísticos publicados pela ANAC - Agência Nacional de Aviação Civil*")
+
+        # st.markdown("#")
+        st.markdown("""---""")
         
         # PAX
         # preparando o grafico
@@ -341,6 +341,12 @@ elif page == 'Ranking de Aeroportos':
         fig_pax
 
     elif filtro_graficos == "Movimentos":
+        # Título da página
+        st.subheader(":bar_chart: Ranking de Aeroportos Brasileiros")
+        st.markdown("*Fonte: Dados estatísticos publicados pela ANAC - Agência Nacional de Aviação Civil*")
+
+        # st.markdown("#")
+        st.markdown("""---""")
         
         # MOVIMENTOS
         # preparando o grafico
@@ -354,6 +360,12 @@ elif page == 'Ranking de Aeroportos':
         fig_atm
         
     elif filtro_graficos == "Carga Aérea":
+        # Título da página
+        st.subheader(":bar_chart: Ranking de Aeroportos Brasileiros")
+        st.markdown("*Fonte: Dados estatísticos publicados pela ANAC - Agência Nacional de Aviação Civil*")
+
+        # st.markdown("#")
+        st.markdown("""---""")
         
        
         # CARGO
@@ -382,6 +394,12 @@ elif page == 'Ranking de Aeroportos':
         col2.plotly_chart(fig_correio, use_container_width=True)
         
     else:
+        # Título da página
+        st.subheader(":bar_chart: Evolução dos Aeroportos Brasileiros")
+        st.markdown("*Fonte: Dados estatísticos publicados pela ANAC - Agência Nacional de Aviação Civil*")
+
+        # st.markdown("#")
+        st.markdown("""---""")
         st.write("Evolução PAX")
         col1, col2 = st.columns(2)
                
