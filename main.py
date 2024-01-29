@@ -322,7 +322,7 @@ elif page == 'Ranking de Aeroportos':
     # filtros
     st.sidebar.title("Filtros")
     filtro_ano = st.sidebar.selectbox("Ano", df_anac["ANO"].unique())
-    filtro_graficos = st.sidebar.selectbox('Gráficos', ['Passageiros', 'Movimentos', 'Carga Aérea'])
+    filtro_graficos = st.sidebar.selectbox('Gráficos', ['Passageiros', 'Movimentos', 'Carga Aérea','Evolução'])
         
     
     if filtro_graficos == "Passageiros":
@@ -350,7 +350,7 @@ elif page == 'Ranking de Aeroportos':
         #col2.plotly_chart(fig_atm, use_container_width=True)
         fig_atm
         
-    else:
+    elif filtro_graficos == "Carga Aérea":
         # CARGO
         # preparando o grafico
         # layout dos graficos
@@ -375,6 +375,9 @@ elif page == 'Ranking de Aeroportos':
         fig_correio = px.bar(df_anac_group_correio, x="AERODROMO", y="CORREIO (KG)", title="Ranking de aeródromos por correio aéreo - Top 10")
         fig_correio.update_traces(texttemplate='%{value}', textposition='outside')
         col2.plotly_chart(fig_correio, use_container_width=True)
+        
+    else:
+        st.write("Evolução PAX")
     
     st.markdown("#")
     st.markdown("""---""")
