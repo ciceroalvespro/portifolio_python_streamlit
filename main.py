@@ -318,10 +318,10 @@ elif page == 'Ranking de Aeroportos':
 
     # crando um data frame unico
     df_anac = pd.concat([df_origem, df_destino], ignore_index=True)
-    filtro_ano = st.sidebar.selectbox("Ano", df_anac["ANO"].unique())
+    
     # filtros
     st.sidebar.title("Filtros")
-    
+    filtro_ano = st.sidebar.selectbox("Ano", df_anac["ANO"].unique())
     filtro_graficos = st.sidebar.selectbox('Gráficos', ['Passageiros', 'Movimentos', 'Carga Aérea','Evolução'])
         
     
