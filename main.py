@@ -396,10 +396,11 @@ elif page == 'Ranking de Aeroportos':
         fig_evo_pax = px.bar(df_anac_evo_pax, x="MÊS", y="PASSAGEIROS", title="Evolução mensal na movimentação de passageiros")
 
 
-        fig_ev_ano = px.bar(df_anac_evo_pax_y, x="ANO", y="PASSAGEIROS", title="Evolução anual na movimentação de passageiros")
+        fig_ev_ano = px.area(df_anac_evo_pax_y, x="ANO", y="PASSAGEIROS", title="Evolução anual na movimentação de passageiros")
+
         
-        col1.plotly_chart(fig_evo_pax, use_container_width=True)
-        col2.plotly_chart(fig_ev_ano, use_container_width=True)
+        col2.plotly_chart(fig_evo_pax, use_container_width=True)
+        col1.plotly_chart(fig_ev_ano, use_container_width=True)
         
       
 
