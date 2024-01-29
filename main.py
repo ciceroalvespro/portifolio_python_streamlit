@@ -318,7 +318,7 @@ elif page == 'Ranking de Aeroportos':
 
     # crando um data frame unico
     df_anac = pd.concat([df_origem, df_destino], ignore_index=True)
-    
+    ####### ANO
     # filtros
     st.sidebar.title("Filtros")
     
@@ -329,8 +329,8 @@ elif page == 'Ranking de Aeroportos':
         filtro_ano = st.sidebar.selectbox("Ano", df_anac["ANO"].unique())
         # PAX
         # preparando o grafico
-        df_anac = df_anac[df_anac["ANO"] == filtro_ano]
-        df_anac_group_pax = df_anac.groupby("AERODROMO")["PASSAGEIROS"].sum().reset_index()
+        df_anac_group_pax = df_anac[df_anac["ANO"] == filtro_ano]
+        df_anac_group_pax = df_anac_group_pax.groupby("AERODROMO")["PASSAGEIROS"].sum().reset_index()
         df_anac_group_pax = df_anac_group_pax.sort_values("PASSAGEIROS", ascending=False)
         df_anac_group_pax = df_anac_group_pax.head(10)
         # criando o grafico pax
@@ -385,9 +385,7 @@ elif page == 'Ranking de Aeroportos':
         df_anac_evo_pax = df_anac[df_anac["AERODROMO"] == filtro_aeroportos]
         #df_anac_evo_pax = df_anac.groupby("ANO")["PASSAGEIROS)"].sum().reset_index()
      
-        fig_evo_pax = px.bar(df_anac, x="ANO", y="PASSAGEIROS",title="Evolução de movimentação de passageiros")
-        #fig_evo_pax.update_traces(texttemplate='%{value}', textposition='outside')
-        fig_evo_pax
+     
 
     
     
