@@ -384,14 +384,19 @@ elif page == 'Ranking de Aeroportos':
         st.write("Evolução PAX")
         filtro_ano = st.sidebar.selectbox("Ano", df_anac["ANO"].unique())
         filtro_aeroportos = st.sidebar.selectbox("Aeroportos", df_anac["AERODROMO"].unique())
-       
         df_anac_evo_pax = df_anac[df_anac["AERODROMO"] == filtro_aeroportos]
         df_anac_evo_pax = df_anac_evo_pax.groupby("MÊS")["PASSAGEIROS"].sum().reset_index()
+
+        df_anac_evo_pax_y = df_anac[df_anac["AERODROMO"] == filtro_aeroportos]
+        df_anac_evo_pax_y = df_anac_evo_pax_y.groupby("ANO")["PASSAGEIROS"].sum().reset_index()
         
         #df_anac_evo_pax
       
         fig_evo_pax = px.bar(df_anac_evo_pax, x="MÊS", y="PASSAGEIROS", title="Evolução mensal na movimentação de passageiros")
         fig_evo_pax
+        
+        fig_evo_pax_y = px.bar(df_anac_evo_pax, x="ANO", y="PASSAGEIROS", title="Evolução anual na movimentação de passageiros")
+        fig_evo_pax_y
      
      
 
