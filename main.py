@@ -379,7 +379,7 @@ elif page == 'Ranking de Aeroportos':
     else:
         st.write("Evolução PAX")
         filtro_aeroportos = st.sidebar.selectbox("Aeroportos", df_anac["AERODROMO"].unique())
-
+        df_anac
 
     
     
