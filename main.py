@@ -380,7 +380,7 @@ elif page == 'Ranking de Aeroportos':
         st.write("Evolução PAX")
         filtro_aeroportos = st.sidebar.selectbox("Aeroportos", df_anac["AERODROMO"].unique())
         df_anac = df_anac[df_anac["AERODROMO"] == filtro_aeroportos]
-        fig_evo_pax = px.line(df_anac, x="ANO", y="PASSAGEIROS",title="Evolução de movimentação de passageiros")
+        fig_evo_pax = px.bar(df_anac, x="ANO", y="PASSAGEIROS",title="Evolução de movimentação de passageiros")
         fig_evo_pax
 
     
