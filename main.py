@@ -385,6 +385,8 @@ elif page == 'Ranking de Aeroportos':
         filtro_aeroportos = st.sidebar.selectbox("Aeroportos", df_anac["AERODROMO"].unique())
        
         df_anac_evo_pax = df_anac[df_anac["AERODROMO"] == filtro_aeroportos]
+        df_anac_evo_pax = df_anac_evo_pax.groupby("ANO")["PASSAGEIROS"].sum().reset_index()
+        
         df_anac_evo_pax
       
         #fig_evo_pax = px.bar(df_anac_evo_pax, x="ANO", Y="PASSAGEIROS", title="Evolução na movimentação de passageiros")
