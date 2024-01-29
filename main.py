@@ -381,9 +381,9 @@ elif page == 'Ranking de Aeroportos':
         col2.plotly_chart(fig_correio, use_container_width=True)
         
     else:
-        col1, col2 = st.columns(2)
-        
         st.write("Evolução PAX")
+        col1, col2 = st.columns(2)
+               
         filtro_ano = st.sidebar.selectbox("Ano", df_anac["ANO"].unique())
         filtro_aeroportos = st.sidebar.selectbox("Aeroportos", df_anac["AERODROMO"].unique())
         df_anac_evo_pax = df_anac[df_anac["AERODROMO"] == filtro_aeroportos]
@@ -398,6 +398,7 @@ elif page == 'Ranking de Aeroportos':
         fig_ev_ano = px.bar(df_anac_evo_pax_y, x="ANO", y="PASSAGEIROS", title="Evolução anual na movimentação de passageiros")
         
         col1.plotly_chart(fig_evo_pax, use_container_width=True)
+        col2.plotly_chart(fig_ev_ano, use_container_width=True)
         
       
 
