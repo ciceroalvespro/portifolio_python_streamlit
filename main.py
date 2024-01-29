@@ -419,7 +419,7 @@ elif page == 'Ranking de Aeroportos':
             col2.plotly_chart(fig_evo_pax, use_container_width=True)
             col1.plotly_chart(fig_ev_ano, use_container_width=True)
         
-        elif filtro_graficos == "Aeronaves": 
+        elif filtro_tipo == "Aeronaves": 
             
             col1, col2 = st.columns(2)
             
