@@ -451,12 +451,7 @@ elif page == 'Ranking de Aeroportos':
             col1.plotly_chart(fig_evo_cargo_y, use_container_width=True)
             col2.plotly_chart(fig_evo_cargo, use_container_width=True)
         
-      
-
-     
-     
-
-    
+      #
     
     st.markdown("#")
     st.markdown("""---""")
