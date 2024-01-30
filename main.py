@@ -27,7 +27,7 @@ if page == 'Apresentação':
     st.subheader("Bem-vindo ao meu Portfólio Python")
     st.text("""
                 Bem-vindo à minha página pessoal de portfólio, dedicada aos projetos desenvolvidos com a linguagem Python! 
-Meu nome é Cicero Alves e sou entusiasta da análise e ciência de dados. 
+Meu nome é Cicero Alves e sou entusiasta de análise e ciência de dados. 
 Aqui, compartilho minha jornada explorando o vasto mundo da programação Python, traduzindo paixão e dedicação 
 em projetos.
 
