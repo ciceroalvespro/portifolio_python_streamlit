@@ -272,7 +272,7 @@ elif page == 'Ranking de Aeroportos':
    
     
     base_url = "https://raw.githubusercontent.com/ciceroalvespro/portifolio_python_streamlit/master/Dados%20publicos%20anac/dados_publicos_anac_{}.csv"
-
+    #base_url = "dados_publicos_anac_{}.csv"
     # Lista para armazenar os DataFrames de cada ano
     dfs = []
 
@@ -401,7 +401,7 @@ elif page == 'Ranking de Aeroportos':
         # st.markdown("#")
         st.markdown("""---""")
 
-        filtro_aeroportos = st.sidebar.selectbox("Aeroportos", df_anac["AERODROMO"].unique())
+        filtro_aeroportos = st.sidebar.selectbox("Aeroporto", df_anac["AERODROMO"].unique())
         filtro_tipo = st.sidebar.select_slider("Opções", ["Passageiros", "Aeronaves", "Carga Aérea"])
 
         if filtro_tipo == "Passageiros":
@@ -414,8 +414,8 @@ elif page == 'Ranking de Aeroportos':
             df_anac_evo_pax_y = df_anac[df_anac["AERODROMO"] == filtro_aeroportos]
             df_anac_evo_pax_y = df_anac_evo_pax_y.groupby("ANO")["PASSAGEIROS"].sum().reset_index()
                
-            fig_evo_pax = px.bar(df_anac_evo_pax, x="MÊS", y="PASSAGEIROS", title="Evolução mensal na movimentação de passageiros")
-            fig_ev_ano = px.area(df_anac_evo_pax_y, x="ANO", y="PASSAGEIROS", title="Evolução anual na movimentação de passageiros")
+            fig_evo_pax = px.bar(df_anac_evo_pax, x="MÊS", y="PASSAGEIROS", title=f"Evolução mensal de movimentação de passageiros - {filtro_aeroportos}/{filtro_ano}")
+            fig_ev_ano = px.area(df_anac_evo_pax_y, x="ANO", y="PASSAGEIROS", title=f"Evolução anual de movimentação de passageiros - {filtro_aeroportos}")
             col2.plotly_chart(fig_evo_pax, use_container_width=True)
             col1.plotly_chart(fig_ev_ano, use_container_width=True)
         
@@ -429,8 +429,8 @@ elif page == 'Ranking de Aeroportos':
             df_anac_evo_act_y = df_anac[df_anac["AERODROMO"] == filtro_aeroportos]
             df_anac_evo_act_y = df_anac_evo_act_y.groupby("ANO")["DECOLAGENS"].sum().reset_index()
     
-            fig_evo_act_y = px.area(df_anac_evo_act_y, x="ANO", y="DECOLAGENS", title="Evolução anual na movimentação de aeronaves")
-            fig_evo_act = px.bar(df_anac_evo_act, x="MÊS", y="DECOLAGENS", title="Evolução mensal na movimentação de aeronaves")
+            fig_evo_act_y = px.area(df_anac_evo_act_y, x="ANO", y="DECOLAGENS", title=f"Evolução anual de movimentação de aeronaves - {filtro_aeroportos}")
+            fig_evo_act = px.bar(df_anac_evo_act, x="MÊS", y="DECOLAGENS", title=f"Evolução mensal de movimentação de aeronaves - {filtro_aeroportos}/{filtro_ano}")
             
             col1.plotly_chart(fig_evo_act_y, use_container_width=True)
             col2.plotly_chart(fig_evo_act, use_container_width=True)
@@ -445,8 +445,8 @@ elif page == 'Ranking de Aeroportos':
             df_anac_evo_cargo_y = df_anac[df_anac["AERODROMO"] == filtro_aeroportos]
             df_anac_evo_cargo_y = df_anac_evo_cargo_y.groupby("ANO")["CARGA PAGA (KG)"].sum().reset_index()
     
-            fig_evo_cargo_y = px.area(df_anac_evo_cargo_y, x="ANO", y="CARGA PAGA (KG)", title="Evolução anual na movimentação de carga")
-            fig_evo_cargo = px.bar(df_anac_evo_cargo, x="MÊS", y="CARGA PAGA (KG)", title="Evolução mensal na movimentação de carga")
+            fig_evo_cargo_y = px.area(df_anac_evo_cargo_y, x="ANO", y="CARGA PAGA (KG)", title=f"Evolução anual de movimentação de carga - {filtro_aeroportos}")
+            fig_evo_cargo = px.bar(df_anac_evo_cargo, x="MÊS", y="CARGA PAGA (KG)", title=f"Evolução mensal de movimentação de carga - {filtro_aeroportos}/{filtro_ano}")
             
             col1.plotly_chart(fig_evo_cargo_y, use_container_width=True)
             col2.plotly_chart(fig_evo_cargo, use_container_width=True)
