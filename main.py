@@ -213,12 +213,13 @@ elif page == 'Análise de Ações':
                 """)
     st.write(df2_filtred)
      with st.expander('Aviso Legal: Importante Ler Antes de Prosseguir'):
-        st.write("""
-        Os dados, tabelas e gráficos apresentados nesta página têm finalidade estritamente informativa e educacional. 
-        Eles foram desenvolvidos com o intuito de fornecer uma análise geral sobre ações e outros ativos financeiros.
-        É fundamental salientar que as informações aqui contidas não constituem, de forma alguma, recomendações de compra 
-        ou venda de quaisquer ativos financeiros.
-        """)
+         
+            st.write("""
+            Os dados, tabelas e gráficos apresentados nesta página têm finalidade estritamente informativa e educacional. 
+            Eles foram desenvolvidos com o intuito de fornecer uma análise geral sobre ações e outros ativos financeiros.
+            É fundamental salientar que as informações aqui contidas não constituem, de forma alguma, recomendações de compra 
+            ou venda de quaisquer ativos financeiros.
+            """)
 
     st.markdown("""#""")
     st.subheader(':bar_chart: Análise dos modelos')
