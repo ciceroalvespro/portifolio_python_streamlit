@@ -27,7 +27,7 @@ if page == 'Apresentação':
     st.subheader("Bem-vindo ao meu Portfólio Python")
     st.text("""
                 Bem-vindo à minha página pessoal de portfólio, dedicada aos projetos desenvolvidos com a linguagem Python! 
-Meu nome é Cicero Alves e sou entusiasta da análise e ciência de dados. 
+Meu nome é Cicero Alves e sou entusiasta de análise e ciência de dados. 
 Aqui, compartilho minha jornada explorando o vasto mundo da programação Python, traduzindo paixão e dedicação 
 em projetos.
 
@@ -206,11 +206,11 @@ elif page == 'Análise de Ações':
         df2_filtred = df_2
     else:
         df2_filtred = df_2[df_2['SETORES'] == selected_setor]
-  
-    with st.expander("2 -  Modelo: Classificação com Filtros de Precificação ( P/L entre 0 e 10, P/VP menor que 5 ) "):
-            st.write(df2_filtred.head(10))
-    
-    
+    st.markdown("2. Modelo ")
+    st.markdown("""
+                Classificação com Filtros de Precificação ( P/L entre 0 e 10, P/VP menor que 5 )
+                """)
+    st.write(df2_filtred)
 
     st.markdown("""#""")
     st.subheader(':bar_chart: Análise dos modelos')
