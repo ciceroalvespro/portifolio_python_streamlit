@@ -206,11 +206,8 @@ elif page == 'Análise de Ações':
         df2_filtred = df_2
     else:
         df2_filtred = df_2[df_2['SETORES'] == selected_setor]
-    st.markdown("2. Modelo ")
-    st.markdown("""
-                Classificação com Filtros de Precificação ( P/L entre 0 e 10, P/VP menor que 5 )
-                """)
-    st.write(df2_filtred)
+    with st.expander("2 - Modelo: Classificação com Filtros de Precificação ( P/L entre 0 e 10, P/VP menor que 5 )"):
+        st.write(df2_filtred.head(10))
 
     st.markdown("""#""")
     st.subheader(':bar_chart: Análise dos modelos')
