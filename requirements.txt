@@ -7,7 +7,7 @@ matplotlib
 plotly.express
 datetime 
 yfinance 
-pandas_datareader.data
+
 yf.pdr_override
 mplfinance 
 plotly.graph_objects 
