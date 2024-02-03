@@ -197,21 +197,20 @@ elif page == 'Análise de Ações':
         df3_filtred = df3
     else:
         df3_filtred = df3[df3['SETORES'] == selected_setor]
-    st.markdown("1. Modelo")
-    st.markdown("""
-                Classificação com Filtros de Desempenho Financeiro (DY - ROE - MGL) - Dívida Bruta/Patrimônio entre 0 e 5, Crescimento Recente de 5 anos positivo, Liquidez de 2 meses maior ou igual a 500.000
-                """)
-    st.write(df3_filtred)
+    
+    with st.expander("1 - Modelo: Ranking de ações com base nos indicadores ( DY - ROE - MGL - Div.Bruta/Patr - CAGR )"):
+         st.write(df3_filtred.head(10))
+    
 
     if selected_setor == 'Todos':
         df2_filtred = df_2
     else:
         df2_filtred = df_2[df_2['SETORES'] == selected_setor]
-    st.markdown("2. Modelo ")
-    st.markdown("""
-                Classificação com Filtros de Precificação ( P/L entre 0 e 10, P/VP menor que 5 )
-                """)
-    st.write(df2_filtred)
+  
+    with st.expander("2 -  Modelo: Classificação com Filtros de Precificação ( P/L entre 0 e 10, P/VP menor que 5 ) "):
+            st.write(df2_filtred.head(10))
+    
+    
 
     st.markdown("""#""")
     st.subheader(':bar_chart: Análise dos modelos')
@@ -222,6 +221,8 @@ elif page == 'Análise de Ações':
     col3, col4 = st.columns(2)
     col5, col6 = st.columns(2)
 
+
+    
     # graficos modelo 1
     # Top 10 pagadoras de dividendos (Ativos)
     df3_div = df3_filtred.sort_values(by="Div.Yield", ascending=False)
