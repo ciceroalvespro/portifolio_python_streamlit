@@ -17,4 +17,6 @@ stack-data
 streamlit
 toml
 yfinance
+sgs
+
 

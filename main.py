@@ -1,22 +1,26 @@
 # Importando as bibliotecas
+from bs4 import BeautifulSoup
+import numpy as np
+import requests
+from plotly.subplots import make_subplots
+import plotly.graph_objects as go
+import plotly.express as px
+import mplfinance as mpf
 import streamlit as st
-import numpy as np 
-import pandas as pd 
+import numpy as np
+import pandas as pd
+import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from datetime import datetime
 import yfinance as yf
 import pandas_datareader.data as web
-yf.pdr_override() # 
-import mplfinance as mpf
-import plotly.express as px
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
-import requests
-import numpy as np
-from bs4 import BeautifulSoup
+import sgs
 
-############ TITULO DO DAH
+yf.pdr_override()
+
+
+# Titulo do Dashboard
 st.set_page_config(
     layout="wide",
     page_title="Dashboard Financeiro",
@@ -27,49 +31,51 @@ st.write('By Cicero Alves')
 # st.markdown("#")
 st.markdown("""---""")
 
-########### GRAFICO 
+# GRAFICO
 pd.set_option("display.max_columns", 40)
 pd.set_option('display.max_rows', 20)
 
-######### SIDE BAR
+# SIDE BAR
 with st.sidebar:
-   
+
     st.title("Análise Técnica")
     st.sidebar.markdown(("""---"""))
     datain_default = "2024-01-01"
-    datain = st.date_input("Início", value=datetime.strptime(datain_default, "%Y-%m-%d"))
+    datain = st.date_input(
+        "Início", value=datetime.strptime(datain_default, "%Y-%m-%d"))
     datafim_default = datetime.now().date()
     datafim = st.date_input("Fim", value=datafim_default)
     ticket_default = "PETR4.SA"
-    ticket=st.text_input("Ticket", value= ticket_default)
-    
- 
+    ticket = st.text_input("Ticket", value=ticket_default)
+
+
 # Parâmetros dos dados
-symbol = ticket 
+symbol = ticket
 start = datain
 end = datafim
 interval = "1d"
 
-df = web.get_data_yahoo(symbol, start = start, end = end, interval = interval)
+df = web.get_data_yahoo(symbol, start=start, end=end, interval=interval)
+
 
 with st.expander("Análise Técnica"):
-# Criando gráfico de candlestick
+    # Criando gráfico de candlestick
     fig = go.Figure(data=[go.Candlestick(x=df.index,
-                                        open=df['Open'],
-                                        high=df['High'],
-                                        low=df['Low'],
-                                        close=df['Close'])])
+                                         open=df['Open'],
+                                         high=df['High'],
+                                         low=df['Low'],
+                                         close=df['Close'])])
 
     # Configurações do layout
     fig.update_layout(title=f'Gráfico Diário de {symbol}',
-                    xaxis_title='Data',
-                    yaxis_title='Preço',
-                    xaxis_rangeslider_visible=False)
+                      xaxis_title='Data',
+                      yaxis_title='Preço',
+                      xaxis_rangeslider_visible=False)
 
     # Exibindo o gráfico no Streamlit
     st.plotly_chart(fig)
 
-############ Analise ações
+# Analise ações
 
 # URL com a tabela de dados
 url = "https://www.fundamentus.com.br/resultado.php"
@@ -90,7 +96,7 @@ table = soup.find('table')
 
 # Definindo dataframe
 df = pd.DataFrame(columns=['Papel', 'Cotação', 'P/L', 'P/VP', 'PSR', 'Div.Yield',
-                    'EV/EBIT', 'Mrg. Líq', 'ROE', 'Dív.Brut/Patrim.', 'Cresc.Rec.5a'])
+                           'EV/EBIT', 'Mrg. Líq', 'ROE', 'Dív.Brut/Patrim.', 'Cresc.Rec.5a'])
 
 # Obtendo todas as linhas da tabela
 for row in table.tbody.find_all('tr'):
@@ -133,7 +139,7 @@ df['Type'] = df['Papel'].apply(lambda x: 1 if '3' in x else 0)
 
 # Criando um novo df para a segunda tabela de P/L e P/VP
 df_2 = df[['Papel', 'Cotação', 'Div.Yield', 'P/L', 'P/VP', 'PSR', 'EV/EBIT', 'Mrg. Líq',
-            'ROE', 'Dív.Brut/Patrim.', 'SETORES']]
+           'ROE', 'Dív.Brut/Patrim.', 'SETORES']]
 
 # Filtrando papeis
 df_2 = df_2[(df["Type"] > 0)]
@@ -180,7 +186,7 @@ df3 = df3.sort_values(by='RK', ascending=True)
 
 # separando as colunas desejadas
 df3 = df3[['RK', 'Papel', 'Cotação', 'Div.Yield', 'P/L', 'P/VP', 'PSR', 'EV/EBIT', 'Mrg. Líq',
-            'ROE', 'Dív.Brut/Patrim.', 'SETORES']]
+           'ROE', 'Dív.Brut/Patrim.', 'SETORES']]
 
 
 st.sidebar.markdown(("""---"""))
@@ -192,10 +198,10 @@ if selected_setor == 'Todos':
     df3_filtred = df3
 else:
     df3_filtred = df3[df3['SETORES'] == selected_setor]
-    
+
 with st.expander("Análise Fundamentalista"):
-         st.write(df3_filtred.head(10))
-         
+    st.write(df3_filtred.head(10))
+
 with st.expander("Explicando o modelo"):
     st.markdown("""
     O modelo de análise desenvolvido tem como objetivo identificar oportunidades de 
@@ -225,31 +231,42 @@ with st.expander("Explicando o modelo"):
     """)
 
 
-
 with st.expander("Gráficos Fundamentalista"):
     # graficos modelo 1
 
     # Top 10 P/VP
     # filtrando P/VP <= 5
     df3_filtred = df3_filtred[(df3_filtred['P/VP'] > 0) &
-                (df['P/VP'] <= 5)]
+                              (df['P/VP'] <= 5)]
     df3_pvp = df3_filtred.sort_values(by="P/VP", ascending=True)
     df3_pvp = df3_pvp.head(10)
     fig_m1pvp = px.bar(df3_pvp, x="Papel", y="P/VP",
-                        title="Top 10 P/VP")
+                       title="Top 10 P/VP")
     st.plotly_chart(fig_m1pvp, use_container_width=True)
 
     # Top 10 P/L
 
     df3_filtred = df3_filtred[(df3_filtred['P/L'] > 0) &
-                (df['P/VP'] <= 10)]
+                              (df['P/VP'] <= 10)]
     df4_pl = df3_filtred.sort_values(by="P/L", ascending=True)
     df4_pl = df4_pl.head(10)
     fig_pl = px.bar(df4_pl, x="Papel", y="P/L",
-                        title="Top 10 P/L")
-    st.plotly_chart(fig_pl, use_container_width=True)       
-            
-            
+                    title="Top 10 P/L")
+    st.plotly_chart(fig_pl, use_container_width=True)
+
+with st.expander("Taxa Selic"):
+    # Definir a série temporal SELIC e obter os dados
+    data_atual = datetime.now().strftime('%d/%m/%Y')
+    selic = 432
+    ts = sgs.time_serie(selic, start='01/01/2010', end=data_atual)
+
+    # Criar DataFrame
+    df = pd.DataFrame(ts.items(), columns=['Data', 'Selic'])
+
+    fig = px.area(df, x='Data', y='Selic', title='Taxa SELIC ao longo do tempo')
+    st.plotly_chart(fig)
+
+
 with st.expander("Disclaimer"):
     st.markdown("""
                 *O conteúdo deste site tem fins educacionais e informativos apenas e não deve ser interpretado como conselho financeiro, de investimento ou de negociação*.""")
