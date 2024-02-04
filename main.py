@@ -34,7 +34,7 @@ pd.set_option('display.max_rows', 20)
 ######### SIDE BAR
 with st.sidebar:
    
-    st.title("Filtros")
+    st.title("Análise Técnica")
     st.sidebar.markdown(("""---"""))
     datain_default = "2019-01-01"
     datain = st.date_input("Início", value=datetime.strptime(datain_default, "%Y-%m-%d"))
@@ -184,6 +184,7 @@ df3 = df3[['RK', 'Papel', 'Cotação', 'Div.Yield', 'P/L', 'P/VP', 'PSR', 'EV/EB
 
 
 st.sidebar.markdown(("""---"""))
+st.sidebar.title("Análise Fundamentalista")
 selected_setor = st.sidebar.selectbox(
     'Setor', ['Todos'] + list(setores_df['SETORES'].unique()))
 
