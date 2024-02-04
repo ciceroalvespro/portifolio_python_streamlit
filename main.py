@@ -61,7 +61,7 @@ with st.expander("Análise Técnica"):
                                         close=df['Close'])])
 
     # Configurações do layout
-    fig.update_layout(title=f'Gráfico Diário para {symbol}',
+    fig.update_layout(title=f'Gráfico Diário de {symbol}',
                     xaxis_title='Data',
                     yaxis_title='Preço',
                     xaxis_rangeslider_visible=False)
