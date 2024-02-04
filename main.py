@@ -284,3 +284,4 @@ with st.expander("IPCA - Inflação"):
 with st.expander("Disclaimer"):
     st.markdown("""
                 *O conteúdo deste site tem fins educacionais e informativos apenas e não deve ser interpretado como conselho financeiro, de investimento ou de negociação*.""")
+#
