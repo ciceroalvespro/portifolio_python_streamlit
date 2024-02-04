@@ -36,7 +36,7 @@ with st.sidebar:
    
     st.title("Análise Técnica")
     st.sidebar.markdown(("""---"""))
-    datain_default = "2019-01-01"
+    datain_default = "2024-01-01"
     datain = st.date_input("Início", value=datetime.strptime(datain_default, "%Y-%m-%d"))
     datafim_default = datetime.now().date()
     datafim = st.date_input("Fim", value=datafim_default)
