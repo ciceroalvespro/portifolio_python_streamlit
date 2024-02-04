@@ -263,7 +263,21 @@ with st.expander("Taxa Selic"):
     # Criar DataFrame
     df = pd.DataFrame(ts.items(), columns=['Data', 'Selic'])
 
-    fig = px.area(df, x='Data', y='Selic', title='Taxa SELIC ao longo do tempo')
+    fig = px.area(df, x='Data', y='Selic',
+                  title='Taxa SELIC ao longo do tempo')
+    st.plotly_chart(fig)
+
+with st.expander("IPCA - Inflação"):
+    # Definir a série temporal SELIC e obter os dados
+    data_atual = datetime.now().strftime('%d/%m/%Y')
+    IPCA = 433
+    ts = sgs.time_serie(IPCA, start='01/01/2020', end=data_atual)
+
+    # Criar DataFrame
+    df = pd.DataFrame(ts.items(), columns=['Data', 'IPCA'])
+
+    fig = px.bar(df, x='Data', y='IPCA',
+                  title='Inflação ao longo do tempo')
     st.plotly_chart(fig)
 
 
