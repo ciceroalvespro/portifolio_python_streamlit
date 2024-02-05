@@ -145,7 +145,7 @@ df_2 = df[['Papel', 'Type', 'Cotação', 'Div.Yield', 'P/L', 'P/VP', 'Mrg. Líq'
 df_2 = df_2[(df_2["Type"] > 0)]  # Filtrando açoes do tipo Ordinarias
 df_2 = df_2[(df_2['Liq.2meses'] >= 100000)]
 df_2 = df_2[(df_2['ROE'] > 0)]
-df_2 = df_2[(df_2['Mrg. Líq'] > 0)]
+df_2 = df_2[(df_2['Mrg. Líq'] >= 0)]
 df_2 = df_2[(df_2['Cresc.Rec.5a'] > 0)]
 df_2 = df_2[(df_2['P/L'] > 0) & (df_2['P/L'] <= 10)]
 df_2 = df_2[(df_2['P/VP'] > 0) & (df_2['P/VP'] <= 5)]
