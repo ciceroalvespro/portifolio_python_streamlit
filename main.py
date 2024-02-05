@@ -138,56 +138,47 @@ df = pd.merge(df, setores_df, on='Papel', how='left')
 df['Type'] = df['Papel'].apply(lambda x: 1 if '3' in x else 0)
 
 # Criando um novo df para a segunda tabela de P/L e P/VP
-df_2 = df[['Papel', 'Cotação', 'Div.Yield', 'P/L', 'P/VP', 'PSR', 'EV/EBIT', 'Mrg. Líq',
-           'ROE', 'Dív.Brut/Patrim.', 'SETORES']]
+df_2 = df[['Papel', 'Type', 'Cotação', 'Div.Yield', 'P/L', 'P/VP', 'Mrg. Líq',
+           'ROE', 'Dív.Brut/Patrim.', 'Liq.2meses', 'Cresc.Rec.5a', 'SETORES']]
 
-# Filtrando papeis
-df_2 = df_2[(df["Type"] > 0)]
+# Filtros
+df_2 = df_2[(df_2["Type"] > 0)]  # Filtrando açoes do tipo Ordinarias
+df_2 = df_2[(df_2['Liq.2meses'] >= 100000)]
+df_2 = df_2[(df_2['ROE'] > 0)]
+df_2 = df_2[(df_2['Mrg. Líq'] > 0)]
+df_2 = df_2[(df_2['Cresc.Rec.5a'] > 0)]
+df_2 = df_2[(df_2['P/L'] > 0) & (df_2['P/L'] <= 10)]
+df_2 = df_2[(df_2['P/VP'] > 0) & (df_2['P/VP'] <= 5)]
 
-# Filtrando P/L <=10
-df_2 = df_2[(df['P/L'] > 0) &
-            (df['P/L'] <= 10)]
-# filtrando P/VP <= 5
-df_2 = df_2[(df['P/VP'] > 0) &
-            (df['P/VP'] <= 5)]
+# Rankings
+df_2 = df_2.sort_values(by='ROE', ascending=False)
+df_2['RK_ROE'] = df_2['ROE'].rank(ascending=True)
 
-# Filtrando empresas com liquidez média de 2 meses acima de  100.000
-df = df[(df['Liq.2meses'] >= 100000)]
+df_2 = df_2.sort_values(by='Mrg. Líq', ascending=False)
+df_2['RK_MGL'] = df_2['Mrg. Líq'].rank(ascending=True)
 
-# Ordenar o DY
-df2 = df.sort_values(by='Div.Yield', ascending=False)
+df_2 = df_2.sort_values(by='P/L', ascending=True)
+df_2['RK_PL'] = df_2['P/L'].rank(ascending=False)
 
-# Criar ranking DY
-df2['RK_DY'] = df2['Div.Yield'].rank(ascending=True)
+df_2 = df_2.sort_values(by='P/VP', ascending=True)
+df_2['RK_PVP'] = df_2['P/VP'].rank(ascending=False)
 
-# Ordenar o ROE
-df3 = df2.sort_values(by='ROE', ascending=False)
-
-# Criar ranking do ROE
-df3['RK_ROE'] = df3['ROE'].rank(ascending=True)
-
-# Ordenando a Margem Líquida
-df3 = df3.sort_values(by='Mrg. Líq', ascending=False)
-
-# Criando ranking da Margem Líquida
-df3['RK_MGL'] = df3['Mrg. Líq'].rank(ascending=True)
+df_2 = df_2.sort_values(by='Dív.Brut/Patrim.', ascending=True)
+df_2['RK_DIV'] = df_2['Dív.Brut/Patrim.'].rank(ascending=False)
 
 # Criar nota final
-df3['NOTA'] = df3['RK_DY'] + df3['RK_ROE'] + df3['RK_MGL']
-
-# Filtrar ações ordinárias
-df3 = df3[(df3['Type'] > 0)]
+df_2['NOTA'] = df_2['RK_ROE'] + df_2['RK_MGL'] + \
+    df_2['RK_PL'] + df_2['RK_PVP'] + df_2['RK_DIV']
 
 # Criando o Ranking Final
-df3['RK'] = df3['NOTA'].rank(ascending=False)
+df_2['Ranking'] = df_2['NOTA'].rank(ascending=False)
 
 # Ordenar o RK
-df3 = df3.sort_values(by='RK', ascending=True)
+df_2 = df_2.sort_values(by='Ranking', ascending=True)
 
 # separando as colunas desejadas
-df3 = df3[['RK', 'Papel', 'Cotação', 'Div.Yield', 'P/L', 'P/VP', 'PSR', 'EV/EBIT', 'Mrg. Líq',
-           'ROE', 'Dív.Brut/Patrim.', 'SETORES']]
-
+df_2 = df_2[['Ranking', 'Papel', 'Cotação', 'Div.Yield', 'P/L', 'P/VP', 'Mrg. Líq',
+             'ROE', 'Dív.Brut/Patrim.', 'SETORES']]
 
 st.sidebar.markdown(("""---"""))
 st.sidebar.title("Análise Fundamentalista")
@@ -195,64 +186,37 @@ selected_setor = st.sidebar.selectbox(
     'Setor', ['Todos'] + list(setores_df['SETORES'].unique()))
 
 if selected_setor == 'Todos':
-    df3_filtred = df3
+    df2_filtred = df_2
 else:
-    df3_filtred = df3[df3['SETORES'] == selected_setor]
+    df2_filtred = df_2[df_2['SETORES'] == selected_setor]
 
-with st.expander("Análise Fundamentalista"):
-    st.write(df3_filtred.head(10))
+with st.expander("Carteira Fundamentalista"):
+    st.write(df2_filtred.head(10))
 
 with st.expander("Explicando o modelo"):
     st.markdown("""
-    O modelo de análise desenvolvido tem como objetivo identificar oportunidades de 
-    investimento com base em critérios específicos obtidos a partir dos dados divulgados 
-    por empresas de capital aberto. Os critérios adotados são os seguintes:
+                
+    O código apresentado realiza uma análise de ações com base em diferentes critérios e cria um ranking final com base nesses critérios.
     
     *Critérios de seleção inicial:*
-
-    - O índice P/L (Preço/Lucro) deve ser maior que 0 e menor ou igual a 10.
-    - O índice P/VP (Preço/Valor Patrimonial) deve ser maior que 0 e menor ou igual a 5.
-    - A liquidez nos últimos 2 meses deve ser maior ou igual a 100.000.
+    
+    Primeiramente, são aplicados filtros para selecionar apenas as ações que atendem a 
+    determinados requisitos, como tipo de ação, liquidez, retorno sobre patrimônio líquido (ROE),
+    margem líquida, crescimento de receita, preço/lucro (P/L) e preço/valor patrimonial (P/VP).
     
     *Criação do ranking:*
-
-    - O Dividend Yield é classificado do maior para o menor, onde a empresa que distribuiu o maior dividendo recebe a maior nota.
-    - O ROE (Return on Equity) é classificado do maior para o menor, onde a empresa com o maior ROE recebe a maior nota.
-    - A margem líquida é classificada do maior para o menor, onde a empresa com a maior margem recebe a maior nota.
     
-    *Cálculo da pontuação e classificação:*
+    Após a aplicação dos filtros, as ações são classificadas e recebem rankings individuais com base 
+    nos critérios de ROE, margem líquida, P/L, P/VP e dívida bruta/patrimônio. Em seguida, é calculada 
+    uma nota final para cada ação, que é a soma dos rankings individuais. Essa nota final é utilizada 
+    para criar um ranking final, onde as ações são classificadas de acordo com sua pontuação total.
 
-    - As notas de cada critério são somadas para criar um ranking final.
-    - A empresa com a maior pontuação recebe a primeira posição no ranking.
     
     Este modelo proporciona uma abordagem sistemática e objetiva para avaliar e classificar empresas com base em métricas financeiras e de desempenho. No entanto, é importante ressaltar que os resultados obtidos pelo modelo devem ser interpretados com cautela e complementados por análises qualitativas e outras fontes de informação. Investimentos em ações e mercados financeiros envolvem riscos e é recomendável que os investidores realizem suas próprias pesquisas e consultem profissionais financeiros antes de tomar decisões de investimento.
     
     *Cicero G. Silva Alves*
     """)
 
-
-with st.expander("Gráficos Fundamentalista"):
-    # graficos modelo 1
-
-    # Top 10 P/VP
-    # filtrando P/VP <= 5
-    df3_filtred = df3_filtred[(df3_filtred['P/VP'] > 0) &
-                              (df['P/VP'] <= 5)]
-    df3_pvp = df3_filtred.sort_values(by="P/VP", ascending=True)
-    df3_pvp = df3_pvp.head(10)
-    fig_m1pvp = px.bar(df3_pvp, x="Papel", y="P/VP",
-                       title="Top 10 P/VP")
-    st.plotly_chart(fig_m1pvp, use_container_width=True)
-
-    # Top 10 P/L
-
-    df3_filtred = df3_filtred[(df3_filtred['P/L'] > 0) &
-                              (df['P/VP'] <= 10)]
-    df4_pl = df3_filtred.sort_values(by="P/L", ascending=True)
-    df4_pl = df4_pl.head(10)
-    fig_pl = px.bar(df4_pl, x="Papel", y="P/L",
-                    title="Top 10 P/L")
-    st.plotly_chart(fig_pl, use_container_width=True)
 
 with st.expander("Taxa Selic"):
     # Definir a série temporal SELIC e obter os dados
@@ -277,7 +241,7 @@ with st.expander("IPCA - Inflação"):
     df = pd.DataFrame(ts.items(), columns=['Data', 'IPCA'])
 
     fig = px.bar(df, x='Data', y='IPCA',
-                  title='Inflação ao longo do tempo')
+                 title='Inflação ao longo do tempo')
     st.plotly_chart(fig)
 
 
