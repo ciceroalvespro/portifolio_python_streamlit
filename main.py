@@ -233,7 +233,7 @@ with st.expander("Taxa de juros básica (SELIC - 432)"):
                   title='Taxa SELIC ao longo do tempo')
     st.plotly_chart(fig)
 
-with st.expander("Índice nacional de preços ao consumidor-amplo (IPCA-433)"):
+with st.expander("Índice nacional de preços ao consumidor-amplo (IPCA - 433)"):
     # Definir a série temporal SELIC e obter os dados
     data_atual = datetime.now().strftime('%d/%m/%Y')
     IPCA = 433
