@@ -219,8 +219,11 @@ with st.expander("Explicando o modelo"):
 
 
 with st.expander("Taxa Selic"):
+    #start = datain
+    #end = datafim
     # Definir a série temporal SELIC e obter os dados
-    data_atual = datetime.now().strftime('%d/%m/%Y')
+    data_atual = datafim.strftime('%d/%m/%Y')
+    #data_atual = datetime.now().strftime('%d/%m/%Y')
     selic = 432
     ts = sgs.time_serie(selic, start='01/01/2010', end=data_atual)
 
