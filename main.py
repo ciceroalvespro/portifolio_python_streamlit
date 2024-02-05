@@ -218,7 +218,7 @@ with st.expander("Explicando o modelo"):
     """)
 
 
-with st.expander("Taxas de juros básicas (SELIC - 432)"):
+with st.expander("Taxa de juros básica (SELIC - 432)"):
     # Definir a série temporal SELIC e obter os dados
     #data_Inicio = datain.strftime('%d/%m/%Y')
     #data_atual = datafim.strftime('%d/%m/%Y')
