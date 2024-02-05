@@ -218,7 +218,7 @@ with st.expander("Explicando o modelo"):
     """)
 
 
-with st.expander("Taxa Selic"):
+with st.expander("Taxa Selic - 432"):
     # Definir a série temporal SELIC e obter os dados
     #data_Inicio = datain.strftime('%d/%m/%Y')
     #data_atual = datafim.strftime('%d/%m/%Y')
@@ -233,7 +233,7 @@ with st.expander("Taxa Selic"):
                   title='Taxa SELIC ao longo do tempo')
     st.plotly_chart(fig)
 
-with st.expander("IPCA - Inflação"):
+with st.expander("IPCA - Inflação - 433"):
     # Definir a série temporal SELIC e obter os dados
     data_atual = datetime.now().strftime('%d/%m/%Y')
     IPCA = 433
