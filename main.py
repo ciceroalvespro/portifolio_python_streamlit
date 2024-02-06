@@ -253,12 +253,4 @@ with st.expander("Disclaimer"):
     st.markdown("""
                 *O conteúdo deste site tem fins educacionais e informativos apenas e não deve ser interpretado como conselho financeiro, de investimento ou de negociação*.""")
 
-############################################################################
-media_div_yield = df2_filtered['Div.Yield'].mean()
-media_PL = df2_filtered['P/L'].mean()
-media_P/VP = df2_filtered['P/VP'].mean()
-media_ROE = df2_filtered['ROE'].mean()
 
-
-
-############################################################################
