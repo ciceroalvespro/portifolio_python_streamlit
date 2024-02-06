@@ -192,6 +192,24 @@ else:
 
 with st.expander("Carteira Fundamentalista"):
     st.write(df2_filtred.head(10))
+    ############################################################################
+    media_div_yield = df2_filtered['Div.Yield'].mean()
+    media_PL = df2_filtered['P/L'].mean()
+    media_P/VP = df2_filtered['P/VP'].mean()
+    media_ROE = df2_filtered['ROE'].mean()
+
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.metric(label="Dividendo Médio", media_div_yield)
+    with col2: 
+            st.metric(label="P/L Médio", media_PL)
+    with col3: 
+            st.metric(label="P/VP Médio", media_P/VP)
+    with col4: 
+            st.metric(label="ROE Médio", media_ROE)
+
+
+############################################################################
 
 with st.expander("Explicando o modelo"):
     st.markdown("""
